@@ -1,8 +1,5 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.Example;
-import ti2736c.Core.RatingList;
-
 import java.util.Locale;
 
 public class main {
@@ -11,8 +8,8 @@ public class main {
 		Locale.setDefault(Locale.US);
         Config.getInstance().read();
 
-        RatingList exampleList = Example.predictRatings();
-        exampleList.writeResultsFile(Config.getInstance().outputFile);
+//        RatingList exampleList = Example.predictRatings();
+//        exampleList.writeResultsFile(Config.getInstance().outputFile);
 //        Data.getInstance().loadTrainingSet();
     }
 

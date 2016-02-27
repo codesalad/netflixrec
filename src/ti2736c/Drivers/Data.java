@@ -1,6 +1,7 @@
 package ti2736c.Drivers;
 
 import ti2736c.Core.MovieList;
+import ti2736c.Core.Rating;
 import ti2736c.Core.RatingList;
 import ti2736c.Core.UserList;
 
@@ -20,6 +21,7 @@ public class Data {
     private RatingList trainingSet;
     private RatingList ratingList;
     private RatingList testSet;
+    private RatingList verificationSet;
     private RatingList predictionList;
 
     private Data() {
@@ -37,16 +39,13 @@ public class Data {
         ratingList.readFile(Config.getInstance().ratingsFile,
                 userList, movieList);
 
-        testSet = new RatingList();
-
         trainingSet = new RatingList();
+        testSet = new RatingList();
+        verificationSet = new RatingList();
 
         predictionList = new RatingList();
         predictionList.readFile(Config.getInstance().predictionsFile,
                 userList, movieList);
-
-        if (Config.TRAINING_SET)
-            loadTrainingSet();
     }
 
     public int countLines(String location) {
@@ -70,13 +69,41 @@ public class Data {
         return lines;
     }
 
-    public void loadTrainingSet() {
+    /**
+     * Outputs a subset of RatingList.
+     * Meant for training the algorithms.
+     * Ratings are already defined.
+     * @return trainingSet
+     */
+    public RatingList getTrainingSet() {
 //        trainingSet.readFile(Config.getInstance().ratingsFile, userList, movieList);
 //        testSet.readFile(Config.getInstance().ratingsFile, userList, movieList);
 
         int trainingSize = (int) (ratingList.size() * Config.TRAINING_SET_SIZE);
         trainingSet.addAll(ratingList.subList(0, trainingSize));
-        testSet.addAll(ratingList.subList(trainingSize + 1, ratingList.size() - 1));
+        return trainingSet;
+    }
+
+    /**
+     * Outputs a subset of RatingList.
+     * Meant for testing the algorithms.
+     * Ratings are already defined, used to check predictions.
+     * @return verificationSet
+     */
+    public RatingList getVerificationSet() {
+        int trainingSize = (int) (ratingList.size() * Config.TRAINING_SET_SIZE);
+        verificationSet.addAll(ratingList.subList(trainingSize + 1, ratingList.size() - 1));
+        return verificationSet;
+    }
+
+    /**
+     * Test Set contains everything in the verificationSet.
+     * Ratings are initialized at 0.0.
+     * @return testSet
+     */
+    public RatingList getTestSet() {
+        verificationSet.forEach(r -> testSet.add(new Rating(r.getUser(), r.getMovie(), 0.0)));
+        return testSet;
     }
 
     public UserList getUserList() {
@@ -89,14 +116,6 @@ public class Data {
 
     public RatingList getRatingList() {
         return ratingList;
-    }
-
-    public RatingList getTrainingSet() {
-        return trainingSet;
-    }
-
-    public RatingList getTestSet() {
-        return testSet;
     }
 
     public RatingList getPredictionList() {

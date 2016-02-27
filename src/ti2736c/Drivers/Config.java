@@ -9,13 +9,13 @@ import java.io.IOException;
  * Created by codesalad on 26-2-16.
  */
 public class Config {
-    private static Config instance = null;
+    public static Config instance = null;
 
     /* General Vars */
 
     public static boolean TRAINING_SET;
     public static double TRAINING_SET_SIZE; // Fixed size for datasets. Used for training.
-
+    public static boolean ALLOW_WRITE;
 
     /* Data locations */
     /* Data locations */
@@ -35,7 +35,7 @@ public class Config {
         try {
             reader = new BufferedReader(new FileReader("settings.config"));
             while ((line = reader.readLine()) != null) {
-                if (!line.contains("#")) {
+                if (!line.startsWith("#")) {
                     String[] parts = line.replace(" ", "").split("=");
                     switch (parts[0]) {
                         case "movies_file": moviesFile = parts[1];
@@ -54,6 +54,9 @@ public class Config {
                             log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
                             break;
                         case "output_file": outputFile = parts[1];
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
+                        case "allow_write": ALLOW_WRITE = parts[1].equals("true");
                             log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
                             break;
                         case "training_set": TRAINING_SET = parts[1].equals("true");
