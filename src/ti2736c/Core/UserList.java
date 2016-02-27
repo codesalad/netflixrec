@@ -1,4 +1,4 @@
-package ti2736c;
+package ti2736c.Core;
 
 import java.util.ArrayList;
 import java.io.FileReader;

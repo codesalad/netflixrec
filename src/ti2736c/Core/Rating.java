@@ -1,4 +1,4 @@
-package ti2736c;
+package ti2736c.Core;
 
 public class Rating {
 

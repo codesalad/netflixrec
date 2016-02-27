@@ -1,7 +1,7 @@
-package ti2736c;
-import java.util.ArrayList;
-import java.io.FileReader;
+package ti2736c.Core;
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 
 
 public class MovieList extends ArrayList<Movie> {
@@ -18,6 +18,10 @@ public class MovieList extends ArrayList<Movie> {
                     new Movie(Integer.parseInt(movieData[0]),
                               Integer.parseInt(movieData[1]),
                               movieData[2]));
+//                put(Integer.parseInt(movieData[0]),
+//                        new Movie(Integer.parseInt(movieData[0]),
+//                              Integer.parseInt(movieData[1]),
+//                              movieData[2]));
             }
         }
         catch(Exception e) {

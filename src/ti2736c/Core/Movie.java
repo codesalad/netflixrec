@@ -1,4 +1,4 @@
-package ti2736c;
+package ti2736c.Core;
 
 
 
@@ -24,6 +24,14 @@ public class Movie {
     public String getTitle() {
         return title;
     }
-    
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("[MOVIE\t index:")
+                .append(getIndex()).append(", year: ")
+                .append(getYear()).append(", title: ")
+                .append(getTitle()).append("]");
+        return result.toString();
+    }
 }
 

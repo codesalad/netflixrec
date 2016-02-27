@@ -1,4 +1,4 @@
-package ti2736c;
+package ti2736c.Core;
 
 public class User {
 
@@ -27,5 +27,16 @@ public class User {
     public int getProfession() {
         return profession;
     }
-    
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("[USER\t index:")
+            .append(getIndex()).append(", male: ")
+            .append(isMale()).append(", age: ")
+            .append(getAge()).append(", prof: ")
+            .append(getProfession())
+            .append("]");
+
+        return result.toString();
+    }
 }
