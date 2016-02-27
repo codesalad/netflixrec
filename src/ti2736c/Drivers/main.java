@@ -13,6 +13,7 @@ public class main {
 
         RatingList exampleList = Example.predictRatings();
         exampleList.writeResultsFile(Config.getInstance().outputFile);
+//        Data.getInstance().loadTrainingSet();
     }
 
 

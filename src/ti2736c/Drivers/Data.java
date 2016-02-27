@@ -1,37 +1,52 @@
 package ti2736c.Drivers;
 
-import ti2736c.Core.*;
+import ti2736c.Core.MovieList;
+import ti2736c.Core.RatingList;
+import ti2736c.Core.UserList;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.*;
 
 /**
  * Create training/test/validation sets based on Config.getInstance().
  * Created by codesalad on 26-2-16.
  */
 public class Data {
+    private static Data instance = null;
+
     // lists
     private UserList userList;
     private MovieList movieList;
+    private RatingList trainingSet;
     private RatingList ratingList;
-    // Map so that we can use a subset of users
-    private Map<Integer, User> users;
-    private Map<Integer, Movie> movies;
-    private Map<Integer, List<Rating>> ratings;
+    private RatingList testSet;
+    private RatingList predictionList;
 
-    public Data() {
+    private Data() {
+        init();
+    }
+
+    public void init() {
         userList = new UserList();
+        userList.readFile(Config.getInstance().usersFile);
+
         movieList = new MovieList();
+        movieList.readFile(Config.getInstance().moviesFile);
+
         ratingList = new RatingList();
+        ratingList.readFile(Config.getInstance().ratingsFile,
+                userList, movieList);
 
-        users = new HashMap<>();
-        movies = new HashMap<>();
-        ratings = new HashMap<>();
+        testSet = new RatingList();
 
-        loadUsers();
-        loadMovies();
-        loadRatings();
+        trainingSet = new RatingList();
+
+        predictionList = new RatingList();
+        predictionList.readFile(Config.getInstance().predictionsFile,
+                userList, movieList);
+
+        if (Config.TRAINING_SET)
+            loadTrainingSet();
     }
 
     public int countLines(String location) {
@@ -55,45 +70,13 @@ public class Data {
         return lines;
     }
 
-    public void loadUsers() {
-		userList.readFile(Config.getInstance().usersFile);
-        int maxLines = countLines(Config.getInstance().usersFile);
-        while (users.size() != (maxLines * Config.getInstance().SET_SIZE)) {
-            Random rnd = new Random();
-            int index = rnd.nextInt(maxLines);
-            if (!users.containsKey(index)) {
-                users.put(index, userList.get(index));
-            }
-        }
-    }
+    public void loadTrainingSet() {
+//        trainingSet.readFile(Config.getInstance().ratingsFile, userList, movieList);
+//        testSet.readFile(Config.getInstance().ratingsFile, userList, movieList);
 
-    public void loadMovies() {
-        movieList.readFile(Config.getInstance().moviesFile);
-        movieList.forEach(m -> {
-            movies.put(m.getIndex(), m);
-        });
-    }
-
-    public void loadRatings() {
-        ratingList.readFile(Config.getInstance().ratingsFile, userList, movieList);
-        ratingList.forEach(r -> {
-            if (!ratings.containsKey(r.getUser().getIndex())) {
-                ratings.put(r.getUser().getIndex(), new LinkedList<>());
-            }
-            ratings.get(r.getUser().getIndex()).add(r);
-        });
-    }
-
-    public Map<Integer, User> getUsers() {
-        return users;
-    }
-
-    public Map<Integer, Movie> getMovies() {
-        return movies;
-    }
-
-    public Map<Integer, List<Rating>> getRatings() {
-        return ratings;
+        int trainingSize = (int) (ratingList.size() * Config.TRAINING_SET_SIZE);
+        trainingSet.addAll(ratingList.subList(0, trainingSize));
+        testSet.addAll(ratingList.subList(trainingSize + 1, ratingList.size() - 1));
     }
 
     public UserList getUserList() {
@@ -108,4 +91,21 @@ public class Data {
         return ratingList;
     }
 
+    public RatingList getTrainingSet() {
+        return trainingSet;
+    }
+
+    public RatingList getTestSet() {
+        return testSet;
+    }
+
+    public RatingList getPredictionList() {
+        return predictionList;
+    }
+
+    public static synchronized Data getInstance() {
+        if (instance == null)
+            instance = new Data();
+        return instance;
+    }
 }

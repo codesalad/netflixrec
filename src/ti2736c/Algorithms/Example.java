@@ -11,10 +11,9 @@ import ti2736c.Drivers.Data;
  */
 public class Example {
     public static RatingList predictRatings() {
-        Data d = new Data();
-        UserList userList = d.getUserList();
-        MovieList movieList = d.getMovieList();
-        RatingList ratingList = d.getRatingList();
+        UserList userList = Data.getInstance().getUserList();
+        MovieList movieList = Data.getInstance().getMovieList();
+        RatingList ratingList = Data.getInstance().getRatingList();
 
         RatingList predRatings = new RatingList();
         predRatings.readFile(Config.getInstance().predictionsFile, userList, movieList);

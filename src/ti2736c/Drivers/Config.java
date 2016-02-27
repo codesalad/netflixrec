@@ -13,7 +13,9 @@ public class Config {
 
     /* General Vars */
 
-    public static double SET_SIZE = 0.1; // Fixed size for datasets. Used for training.
+    public static boolean TRAINING_SET;
+    public static double TRAINING_SET_SIZE; // Fixed size for datasets. Used for training.
+
 
     /* Data locations */
     /* Data locations */
@@ -23,9 +25,11 @@ public class Config {
     public static String predictionsFile; // predictions
     public static String outputFile; // output
 
-    private void Config() {}
+    private Config() {}
 
     public static void read() {
+        StringBuilder log = new StringBuilder();
+        log.append("CONFIG LOADED:\n-----------------\n");
         BufferedReader reader = null;
         String line;
         try {
@@ -34,16 +38,32 @@ public class Config {
                 if (!line.contains("#")) {
                     String[] parts = line.replace(" ", "").split("=");
                     switch (parts[0]) {
-                        case "movies_file": moviesFile = parts[1]; break;
-                        case "ratings_file": ratingsFile = parts[1]; break;
-                        case "users_file": usersFile = parts[1]; break;
-                        case "set_size": SET_SIZE = Double.parseDouble(parts[1]); break;
+                        case "movies_file": moviesFile = parts[1];
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
+                        case "ratings_file": ratingsFile = parts[1];
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
+                        case "users_file": usersFile = parts[1];
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
+                        case "training_set_size": TRAINING_SET_SIZE = Double.parseDouble(parts[1]);
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
                         case "predictions_file": predictionsFile = parts[1];
-                        case "output_file": outputFile = parts[1]; break;
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
+                        case "output_file": outputFile = parts[1];
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
+                        case "training_set": TRAINING_SET = parts[1].equals("true");
+                            log.append(parts[0]).append(" = ").append(parts[1]).append("\n");
+                            break;
                         default: break;
                     }
                 }
             }
+            System.out.println(log.toString());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -59,7 +79,7 @@ public class Config {
 
     public static synchronized Config getInstance() {
         if (instance == null)
-            return new Config();
-        else return instance;
+            instance = new Config();
+        return instance;
     }
 }
