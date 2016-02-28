@@ -8,16 +8,20 @@ import java.util.List;
  */
 public class FeatureVector extends ArrayList<Double> {
     int userIndex;
+    int movieIndex;
     double rating;
 
-    public FeatureVector(int index, double r) {
-        userIndex = index;
+    public FeatureVector(int uindex, int mindex, double r) {
+        userIndex = uindex;
+        movieIndex = mindex;
         rating = r;
     }
 
     public int getUserIndex() {
         return userIndex;
     }
+
+    public int getMovieIndex() {return movieIndex; }
 
     public double getRating() {
         return rating;

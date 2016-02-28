@@ -44,7 +44,7 @@ public class NNDriver {
         RatingList trainingSet = Data.getInstance().getTrainingSet();
         LinkedList<FeatureVector> set = new LinkedList<>();
         trainingSet.forEach(r -> {
-            FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getRating());
+            FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
             vector.add((double) r.getUser().getAge()); //  age
             vector.add((double) r.getUser().getProfession()); // profession
             vector.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
@@ -54,7 +54,7 @@ public class NNDriver {
 
         // Item to classify
         Rating r = Data.getInstance().getRatingList().get(13);
-        FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getRating());
+        FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
         // add info about user.
         vector.add((double) r.getUser().getAge()); //age
         vector.add((double) r.getUser().getProfession()); // profession
@@ -72,5 +72,8 @@ public class NNDriver {
                 "\t movie: " + item.getVector().get(3) +
                 "\t rating: " + item.getVector().getRating() + "\n");
         });
+
+        double rating = NearestNeighbour.ratingFromNeighbours(r.getMovie().getIndex(), res);
+        System.out.println("movie: " + r.getMovie().getIndex() + "\tprediction: " + rating + "\tactual:" + r.getRating());
     }
 }
