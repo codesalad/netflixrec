@@ -7,6 +7,7 @@ import ti2736c.Core.UserList;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Random;
 
 /**
  * Create training/test/validation sets based on Config.getInstance().
@@ -46,6 +47,8 @@ public class Data {
         predictionList = new RatingList();
         predictionList.readFile(Config.getInstance().predictionsFile,
                 userList, movieList);
+
+        initSets();
     }
 
     public int countLines(String location) {
@@ -70,17 +73,55 @@ public class Data {
     }
 
     /**
+     * Creates training sets, test sets and verification sets.
+     * If RANDOMIZE_SETS is set to true (see Config), random elements
+     * are picked from ratingList until the set is full.
+     * Else, elements are added in the order they're in in ratingList.
+     * If trainingSize + testSize > ratingList size, elements could occur in both
+     * the training and test sets. This is bad.
+     */
+    public void initSets() {
+        int trainingSize = (int) (ratingList.size() * Config.TRAINING_SET_SIZE);
+        int testSize = (int) (ratingList.size() * Config.TEST_SET_SIZE);
+
+        assert (trainingSize <= ratingList.size());
+
+        Random rnd = new Random();
+
+        if (Config.RANDOMIZE_SETS) {
+            System.out.println("Randomizing training/test sets...");
+            RatingList temp = new RatingList();
+            temp.addAll(ratingList);
+
+            while (trainingSet.size() != trainingSize)
+                trainingSet.add(temp.remove(rnd.nextInt(temp.size())));
+
+            while (verificationSet.size() != testSize) {
+                if (!temp.isEmpty()) verificationSet.add(temp.remove(rnd.nextInt(temp.size())));
+                else verificationSet.add(ratingList.get(rnd.nextInt(ratingList.size())));
+            }
+        } else {
+            System.out.println("Creating non-random training/test sets...");
+            trainingSet.addAll(ratingList.subList(0, trainingSize));
+            if (trainingSize + testSize > ratingList.size()) {
+                verificationSet.addAll(ratingList.subList(trainingSize + 1, ratingList.size() - 1));
+                while (verificationSet.size() != testSize)
+                    verificationSet.add(ratingList.get(rnd.nextInt(ratingList.size())));
+            } else {
+                verificationSet.addAll(ratingList.subList(trainingSize + 1, trainingSize + testSize - 1));
+            }
+        }
+        // add all ratings to test set, but set ratings at 0.
+        verificationSet.forEach(r -> testSet.add(new Rating(r.getUser(), r.getMovie(), 0.0)));
+    }
+
+    /**
      * Outputs a subset of RatingList.
      * Meant for training the algorithms.
      * Ratings are already defined.
      * @return trainingSet
      */
     public RatingList getTrainingSet() {
-//        trainingSet.readFile(Config.getInstance().ratingsFile, userList, movieList);
-//        testSet.readFile(Config.getInstance().ratingsFile, userList, movieList);
-
-        int trainingSize = (int) (ratingList.size() * Config.TRAINING_SET_SIZE);
-        trainingSet.addAll(ratingList.subList(0, trainingSize));
         return trainingSet;
     }
 
@@ -91,8 +132,6 @@ public class Data {
      * @return verificationSet
      */
     public RatingList getVerificationSet() {
-        int trainingSize = (int) (ratingList.size() * Config.TRAINING_SET_SIZE);
-        verificationSet.addAll(ratingList.subList(trainingSize + 1, ratingList.size() - 1));
         return verificationSet;
     }
 
@@ -102,7 +141,6 @@ public class Data {
      * @return testSet
      */
     public RatingList getTestSet() {
-        verificationSet.forEach(r -> testSet.add(new Rating(r.getUser(), r.getMovie(), 0.0)));
         return testSet;
     }
 

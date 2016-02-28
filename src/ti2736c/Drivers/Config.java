@@ -17,6 +17,7 @@ public class Config {
     public static double TEST_SET_SIZE;
     public static boolean ALLOW_WRITE;
     public static boolean ALLOW_STATUS_OUTPUT;
+    public static boolean RANDOMIZE_SETS;
 
     /* Data locations */
     public static String moviesFile; // movies
@@ -45,6 +46,7 @@ public class Config {
                         case "movies_file": moviesFile = parts[1]; break;
                         case "ratings_file": ratingsFile = parts[1]; break;
                         case "users_file": usersFile = parts[1]; break;
+                        case "randomize_sets": RANDOMIZE_SETS = parts[1].equals("true"); break;
                         case "training_set_size": TRAINING_SET_SIZE = Double.parseDouble(parts[1]); break;
                         case "test_set_size": TEST_SET_SIZE = Double.parseDouble(parts[1]); break;
                         case "predictions_file": predictionsFile = parts[1]; break;

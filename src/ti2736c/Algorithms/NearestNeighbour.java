@@ -26,7 +26,7 @@ public class NearestNeighbour {
             vector.add((double) r.getMovie().getIndex()); //movieindex
             dataSet.add(vector);
             if (Config.ALLOW_STATUS_OUTPUT)
-                System.out.printf("\rConverting data set: %.1f%%", ((float) i / inputList.size()) * 100);
+                System.out.printf("\rConverting data set: %.1f%%", ((float) (i+1) / inputList.size()) * 100);
         }
 
         // OutputList contains unrated ratings.
@@ -42,7 +42,7 @@ public class NearestNeighbour {
             List<FeatureItem> res = kNearestNeighbors(Config.NN_k, toClassify, dataSet);
             r.setRating(ratingFromNeighbours(r.getMovie().getIndex(), res));
             if (Config.ALLOW_STATUS_OUTPUT)
-                System.out.printf("\rPredicting: %.1f%%", ((float) i / outputList.size()) * 100);
+                System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
         }
 
 
