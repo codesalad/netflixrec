@@ -12,24 +12,35 @@ import java.util.List;
  */
 public class NearestNeighbour {
 
-    public static RatingList predictRatings(UserList userList, MovieList movieList, RatingList inputList, RatingList outputList) {
+    public static RatingList predictRatings(RatingList inputList, RatingList outputList) {
 
         // Convert data list to list of feature vectors.
-        LinkedList<FeatureVector> set = new LinkedList<>();
+        LinkedList<FeatureVector> dataSet = new LinkedList<>();
         inputList.forEach(r -> {
             FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
             vector.add((double) r.getUser().getAge()); //  age
             vector.add((double) r.getUser().getProfession()); // profession
             vector.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
             vector.add((double) r.getMovie().getIndex()); //movieindex
-            set.add(vector);
+            dataSet.add(vector);
         });
 
         // OutputList contains unrated ratings.
         // Convert these into feature vectors and get NNs
-        outputList.forEach(r -> {
+        for (int i = 0; i < outputList.size(); i++) {
+            System.out.printf("\rPredicting: %.1f%%", ((float) i / outputList.size()) * 100);
+            Rating r = outputList.get(i);
+            FeatureVector toClassify = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
+            // add info about user.
+            toClassify.add((double) r.getUser().getAge()); //age
+            toClassify.add((double) r.getUser().getProfession()); // profession
+            toClassify.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
+            toClassify.add((double) r.getMovie().getIndex()); //movieindex
+            List<FeatureItem> res = kNearestNeighbors(10, toClassify, dataSet);
+            r.setRating(ratingFromNeighbours(r.getMovie().getIndex(), res));
 
-        });
+            System.out.print(((float) i / outputList.size()) * 100 + "%\r");
+        }
 
 
         // Return predictions
@@ -57,9 +68,9 @@ public class NearestNeighbour {
 
         for (int i = 1; i < neighbours.size(); i++) {
             if (neighbours.get(i).getVector().getMovieIndex() == movieIndex) {
-            mean = ((double) i / ((double) i + 1.0)) * mean
-                    + (1.0 / ((double) i + 1.0))
-                    * neighbours.get(i).getVector().getRating();
+                mean = ((double) i / ((double) i + 1.0)) * mean
+                        + (1.0 / ((double) i + 1.0))
+                        * neighbours.get(i).getVector().getRating();
             }
         }
 
