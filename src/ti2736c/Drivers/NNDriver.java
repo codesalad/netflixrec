@@ -27,8 +27,8 @@ public class NNDriver {
         // Predict ratings.
         RatingList predictions = NearestNeighbour.predictRatings(trainingSet, testSet);
 
-//        if (Config.ALLOW_WRITE)
-//            predictions.writeResultsFile(Config.outputFile);
+        if (Config.ALLOW_WRITE)
+            predictions.writeResultsFile(Config.outputFile);
 
         // Verify the predictions.
         RMSE.calcPrint(predictions, verificationSet);

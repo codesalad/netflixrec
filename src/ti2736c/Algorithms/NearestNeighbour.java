@@ -1,6 +1,7 @@
 package ti2736c.Algorithms;
 
 import ti2736c.Core.*;
+import ti2736c.Drivers.Config;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,19 +17,21 @@ public class NearestNeighbour {
 
         // Convert data list to list of feature vectors.
         LinkedList<FeatureVector> dataSet = new LinkedList<>();
-        inputList.forEach(r -> {
+        for (int i = 0; i < inputList.size(); i++) {
+            Rating r = inputList.get(i);
             FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
             vector.add((double) r.getUser().getAge()); //  age
             vector.add((double) r.getUser().getProfession()); // profession
             vector.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
             vector.add((double) r.getMovie().getIndex()); //movieindex
             dataSet.add(vector);
-        });
+            if (Config.ALLOW_STATUS_OUTPUT)
+                System.out.printf("\rConverting data set: %.1f%%", ((float) i / inputList.size()) * 100);
+        }
 
         // OutputList contains unrated ratings.
         // Convert these into feature vectors and get NNs
         for (int i = 0; i < outputList.size(); i++) {
-            System.out.printf("\rPredicting: %.1f%%", ((float) i / outputList.size()) * 100);
             Rating r = outputList.get(i);
             FeatureVector toClassify = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
             // add info about user.
@@ -36,10 +39,10 @@ public class NearestNeighbour {
             toClassify.add((double) r.getUser().getProfession()); // profession
             toClassify.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
             toClassify.add((double) r.getMovie().getIndex()); //movieindex
-            List<FeatureItem> res = kNearestNeighbors(10, toClassify, dataSet);
+            List<FeatureItem> res = kNearestNeighbors(Config.NN_k, toClassify, dataSet);
             r.setRating(ratingFromNeighbours(r.getMovie().getIndex(), res));
-
-            System.out.print(((float) i / outputList.size()) * 100 + "%\r");
+            if (Config.ALLOW_STATUS_OUTPUT)
+                System.out.printf("\rPredicting: %.1f%%", ((float) i / outputList.size()) * 100);
         }
 
 

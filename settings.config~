@@ -5,9 +5,8 @@
 [General Variables]
 #write results to file?
 allow_write = false
-allow_status_output = true
 
-#training/test set will share data if together > 1
+# training/test set will share data if together > 1
 training_set_size = 0.9
 test_set_size = 0.1
 
@@ -18,8 +17,8 @@ users_file = data/users.csv
 predictions_file = data/predictions.csv
 output_file = submission.csv
 
-[Nearest Neighbor Vars]
+## Nearest Neighbor vars ##
 NN_k = 10
 
-#distance metric: euclid, angular, cosine, acos, hamming...
+# distance metric: euclid, angular, cosine, acos, hamming...
 NN_distance_metric = euclid
