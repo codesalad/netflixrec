@@ -25,10 +25,10 @@ public class RMSE {
 
     public static void calcPrint(RatingList predicted, RatingList actual) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Algorithm ran with training set of size: ").append(Data.getInstance().getTrainingSet().size())
+        builder.append("Algorithm ran with \ntraining set of size: ").append(Data.getInstance().getTrainingSet().size())
                 .append(" (").append(Config.TRAINING_SET_SIZE * 100).append("%)")
                 .append("\ntest set of size: ").append(actual.size());
-        builder.append("\nRMSE: ").append(calculate(predicted, actual));
+        builder.append("\nRMSE: ").append(calculate(predicted, actual)).append("\n");
         System.out.println(builder);
     }
 }

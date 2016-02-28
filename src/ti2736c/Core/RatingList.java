@@ -51,7 +51,7 @@ public class RatingList extends ArrayList<Rating> {
 				pw.println((i + 1) + "," + get(i).getRating());
 			}
 			pw.close();
-			System.out.println("Succesfully written predictions to file!");
+			System.out.println("Succesfully written predictions to file: " + filename + "\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
