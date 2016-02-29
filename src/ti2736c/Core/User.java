@@ -3,6 +3,7 @@ package ti2736c.Core;
 public class User {
 
     int index, age, profession;
+    double bias;
     boolean male;
     
 	public User(int _index, boolean _male, int _age, int _profession) {
@@ -10,6 +11,14 @@ public class User {
         this.male       = _male;
         this.age        = _age;
         this.profession = _profession;
+    }
+
+    public void setBias(double b) {
+        this.bias = b;
+    }
+
+    public double getBias() {
+        return bias;
     }
     
     public int getIndex() {

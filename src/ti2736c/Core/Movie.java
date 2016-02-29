@@ -5,6 +5,7 @@ package ti2736c.Core;
 public class Movie {
     
     int index, year;
+    double bias;
     String title;
     
 	public Movie(int _index, int _year, String _title) {
@@ -12,7 +13,15 @@ public class Movie {
         this.year  = _year;
         this.title = _title;
     }
-    
+
+    public void setBias(double b) {
+        this.bias = b;
+    }
+
+    public double getBias() {
+        return bias;
+    }
+
     public int getIndex() {
         return index;
     }

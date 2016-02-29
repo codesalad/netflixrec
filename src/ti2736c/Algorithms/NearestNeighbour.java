@@ -39,7 +39,10 @@ public class NearestNeighbour {
             toClassify.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
             toClassify.add((double) r.getMovie().getIndex()); //movieindex
             List<FeatureItem> res = kNearestNeighbors(Config.NN_k, toClassify, dataSet);
-            r.setRating(ratingFromNeighbours(r.getMovie().getIndex(), res));
+
+            double predMean = ratingFromNeighbours(r.getMovie().getIndex(), res);
+            double prediction = predMean + r.getUser().getBias() + r.getMovie().getBias();
+            r.setRating(Math.round(prediction));
             if (Config.ALLOW_STATUS_OUTPUT)
                 System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
         }
@@ -76,7 +79,7 @@ public class NearestNeighbour {
             }
         }
 
-        return Math.round(mean);
+        return mean;
     }
 
 }

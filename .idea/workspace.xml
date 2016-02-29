@@ -3,14 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/NearestNeighbour.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/NearestNeighbour.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Core/FeatureVector.class" afterPath="$PROJECT_DIR$/data/ti2736c/Core/FeatureVector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Core/Movie.class" afterPath="$PROJECT_DIR$/data/ti2736c/Core/Movie.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Core/User.class" afterPath="$PROJECT_DIR$/data/ti2736c/Core/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Config.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Config.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/NearestNeighbour.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/NearestNeighbour.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Core/FeatureVector.java" afterPath="$PROJECT_DIR$/src/ti2736c/Core/FeatureVector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Core/Movie.java" afterPath="$PROJECT_DIR$/src/ti2736c/Core/Movie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Core/User.java" afterPath="$PROJECT_DIR$/src/ti2736c/Core/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/NNDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/NNDriver.java" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,14 +36,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Rating.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Rating.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+              <folding>
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#718#719#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="NNDriver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/NNDriver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+              <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1456702831562" expanded="true" signature="319:1252" placeholder="//..." />
+                <marker date="1456714213416" expanded="true" signature="319:1252" placeholder="//..." />
               </folding>
             </state>
           </provider>
@@ -49,9 +66,11 @@
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+              <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1470#1471#0" expanded="true" />
+                <element signature="e#1542#1543#0" expanded="true" />
                 <element signature="method#getInstance#0;class#Data#0" expanded="false" />
               </folding>
             </state>
@@ -62,8 +81,28 @@
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/User.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="40" selection-end-column="5" />
-              <folding />
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+              <folding>
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#393#394#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Movie.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Movie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+              <folding>
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#322#323#0" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#380#381#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Config.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="83" selection-start-line="54" selection-start-column="83" selection-end-line="54" selection-end-column="83" />
+              <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/settings.config">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -93,8 +132,8 @@
       <file leaf-file-name="NearestNeighbour.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/NearestNeighbour.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14603616">
-              <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+            <state vertical-scroll-proportion="-0.12249443">
+              <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,10 +163,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/ti2736c/main.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/SetsProducer.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Core/User.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/RatingMap.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/MovieList.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Core/Movie.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/Example.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" />
@@ -136,8 +173,10 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/FeatureVector.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/NNDriver.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Core/User.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Core/Movie.java" />
         <option value="$PROJECT_DIR$/settings.config" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/NearestNeighbour.java" />
       </list>
@@ -147,6 +186,13 @@
   <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="29" />
@@ -410,7 +456,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -982,16 +1028,16 @@
       <workItem from="1456591031477" duration="652000" />
       <workItem from="1456592980732" duration="3183000" />
       <workItem from="1456604860237" duration="6897000" />
-      <workItem from="1456613241014" duration="40960000" />
+      <workItem from="1456613241014" duration="45734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73084000" />
+    <option name="totallyTimeSpent" value="77858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1000,10 +1046,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19068256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48320693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18157615" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19169329" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1266,13 +1312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/users.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="156.85715">
-          <caret line="6039" column="11" selection-start-line="6039" selection-start-column="11" selection-end-line="6039" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/UserList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1280,14 +1319,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6876972">
-          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,14 +1390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Rating.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/Example.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1395,32 +1418,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="83" selection-start-line="54" selection-start-column="83" selection-end-line="54" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ratings.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="23819.389">
           <caret line="895609" column="11" selection-start-line="895609" selection-start-column="11" selection-end-line="895609" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getInstance#0;class#Data#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1432,21 +1434,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.config">
+    <entry file="jar:///usr/local/bin/java/jdk1.8.0_65/src.zip!/com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17910448">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/users.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="180.26866">
+          <caret line="6039" column="11" selection-start-line="6039" selection-start-column="11" selection-end-line="6039" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Rating.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding>
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/NNDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1456702831562" expanded="true" signature="319:1252" placeholder="//..." />
+            <marker date="1456714213416" expanded="true" signature="319:1252" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -1454,15 +1475,64 @@
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="40" selection-end-column="5" />
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Movie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding>
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="method#getInstance#0;class#Data#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/NearestNeighbour.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14603616">
-          <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+        <state vertical-scroll-proportion="-0.12249443">
+          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

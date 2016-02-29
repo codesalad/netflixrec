@@ -1,9 +1,6 @@
 package ti2736c.Drivers;
 
-import ti2736c.Core.MovieList;
-import ti2736c.Core.Rating;
-import ti2736c.Core.RatingList;
-import ti2736c.Core.UserList;
+import ti2736c.Core.*;
 
 import java.util.*;
 
@@ -52,42 +49,47 @@ public class Data {
         if (Config.NORMALIZE)
             normalizeData();
 
+        if (Config.BIAS)
+            calculateBiases();
+
         initSets();
     }
 
     public void normalizeData() {
-        System.out.println("Normalizing data. Takes a while.");
+        System.out.println("Normalizing data. Does nothing now");
+    }
 
-        // Create map for simplicity
-        user_rating = new HashMap<>();
+    public void calculateBiases() {
+        double mean = ratingList.get(0).getRating();
+        for (int i = 1; i < ratingList.size(); i++) {
+                mean = ((double) i / ((double) i + 1.0)) * mean
+                        + (1.0 / ((double) i + 1.0))
+                        * ratingList.get(i).getRating();
+        }
+
+        Map<Integer, List<Double>> user_ratings = new HashMap<>();
+        Map<Integer, List<Double>> movie_ratings = new HashMap<>();
+
         ratingList.forEach(r -> {
-            if (!user_rating.containsKey(r.getUser().getIndex()))
-                user_rating.put(r.getUser().getIndex(), new LinkedList<>());
-            user_rating.get(r.getUser().getIndex()).add(r.getRating());
+            if (!user_ratings.containsKey(r.getUser().getIndex()))
+                user_ratings.put(r.getUser().getIndex(), new LinkedList<>());
+            user_ratings.get(r.getUser().getIndex()).add(r.getRating());
+
+            if (!movie_ratings.containsKey(r.getMovie().getIndex()))
+                movie_ratings.put(r.getMovie().getIndex(), new LinkedList<>());
+            movie_ratings.get(r.getMovie().getIndex()).add(r.getRating());
         });
 
-        // Calculate mean and std of each user
-        // mean gets added as last element of (k, l)
-        user_rating.forEach((k, l) -> {
-            double mean = l.stream().mapToDouble(a -> a).average().getAsDouble();
-            l.add(mean);
-        });
+        for (User u : userList) {
+            double m = user_ratings.get(u.getIndex()).stream().mapToDouble(d -> d).average().getAsDouble();
+            u.setBias(m - mean);
+        }
 
-        user_rating.forEach((k, l) -> {
-            double mean = l.get(l.size() - 1);
-
-            final double[] sumdev = {0.0};
-            l.stream().map(r -> sumdev[0] += Math.pow(r - mean, 2));
-
-            l.add(Math.sqrt(sumdev[0]) / (l.size() - 1));
-        });
-//
-//        // normalize
-//        ratingList.forEach(r -> {
-//            LinkedList<Double> list = (LinkedList) user_rating.get(r.getUser().getIndex());
-//            r.setRating( (r.getRating() - list.get(list.size() - 2))
-//                        / (list.get(list.size() - 1)) );
-//        });
+        for (Movie m : movieList) {
+            if (movie_ratings.get(m.getIndex()) == null) continue;
+            double m2 = movie_ratings.get(m.getIndex()).stream().mapToDouble(d -> d).average().getAsDouble();
+            m.setBias(m2 - mean);
+        }
     }
 
     /**
