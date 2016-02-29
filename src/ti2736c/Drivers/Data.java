@@ -5,9 +5,7 @@ import ti2736c.Core.Rating;
 import ti2736c.Core.RatingList;
 import ti2736c.Core.UserList;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Create training/test/validation sets based on Config.getInstance().
@@ -24,6 +22,8 @@ public class Data {
     private RatingList testSet;
     private RatingList verificationSet;
     private RatingList predictionList;
+
+    private Map<Integer, List<Double>> user_rating;
 
     private Data() {
         init();
@@ -48,28 +48,46 @@ public class Data {
         predictionList.readFile(Config.getInstance().predictionsFile,
                 userList, movieList);
 
+        // Only user rating is normalized at the moment.
+        if (Config.NORMALIZE)
+            normalizeData();
+
         initSets();
     }
 
-    public int countLines(String location) {
-        int lines = 0;
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(location));
-            while (reader.readLine() != null)
-                lines++;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return lines;
+    public void normalizeData() {
+        System.out.println("Normalizing data. Takes a while.");
+
+        // Create map for simplicity
+        user_rating = new HashMap<>();
+        ratingList.forEach(r -> {
+            if (!user_rating.containsKey(r.getUser().getIndex()))
+                user_rating.put(r.getUser().getIndex(), new LinkedList<>());
+            user_rating.get(r.getUser().getIndex()).add(r.getRating());
+        });
+
+        // Calculate mean and std of each user
+        // mean gets added as last element of (k, l)
+        user_rating.forEach((k, l) -> {
+            double mean = l.stream().mapToDouble(a -> a).average().getAsDouble();
+            l.add(mean);
+        });
+
+        user_rating.forEach((k, l) -> {
+            double mean = l.get(l.size() - 1);
+
+            final double[] sumdev = {0.0};
+            l.stream().map(r -> sumdev[0] += Math.pow(r - mean, 2));
+
+            l.add(Math.sqrt(sumdev[0]) / (l.size() - 1));
+        });
+//
+//        // normalize
+//        ratingList.forEach(r -> {
+//            LinkedList<Double> list = (LinkedList) user_rating.get(r.getUser().getIndex());
+//            r.setRating( (r.getRating() - list.get(list.size() - 2))
+//                        / (list.get(list.size() - 1)) );
+//        });
     }
 
     /**

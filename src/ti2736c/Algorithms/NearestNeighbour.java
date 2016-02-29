@@ -17,6 +17,7 @@ public class NearestNeighbour {
 
         // Convert data list to list of feature vectors.
         LinkedList<FeatureVector> dataSet = new LinkedList<>();
+        System.out.println("Converting data set into Feature Vectors...");
         for (int i = 0; i < inputList.size(); i++) {
             Rating r = inputList.get(i);
             FeatureVector vector = new FeatureVector(r.getUser().getIndex(), r.getMovie().getIndex(), r.getRating());
@@ -25,8 +26,6 @@ public class NearestNeighbour {
             vector.add((r.getUser().isMale()) ? 1.0 : 0.0); // gender
             vector.add((double) r.getMovie().getIndex()); //movieindex
             dataSet.add(vector);
-            if (Config.ALLOW_STATUS_OUTPUT)
-                System.out.printf("\rConverting data set: %.1f%%", ((float) (i+1) / inputList.size()) * 100);
         }
 
         // OutputList contains unrated ratings.
@@ -77,7 +76,7 @@ public class NearestNeighbour {
             }
         }
 
-        return mean;
+        return Math.round(mean);
     }
 
 }

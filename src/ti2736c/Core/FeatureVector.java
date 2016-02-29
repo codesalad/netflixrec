@@ -1,5 +1,7 @@
 package ti2736c.Core;
 
+import ti2736c.Drivers.Config;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +40,17 @@ public class FeatureVector extends ArrayList<Double> {
         return result;
     }
 
+    public double dist(List<Double> other) {
+        switch (Config.NN_distance_metric) {
+            case "euclid": return euclidDist(other);
+            default: System.err.println("Not a valid distance metric."); break;
+        }
+
+        return 0.0;
+    }
+
     /**
-     * Calculates angular distance between this and other vector.
+     * Calculates euclidean distance between this and other vector.
      * @param other Other vector to calculate distance with.
      * @return Distance between this and the other vector.
      */
@@ -53,6 +64,8 @@ public class FeatureVector extends ArrayList<Double> {
 
         return Math.sqrt(distance);
     }
+
+//    public double
 
     /**
      * Converts this object to a String object.

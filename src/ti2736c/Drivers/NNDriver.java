@@ -23,6 +23,10 @@ public class NNDriver {
         // Contains <user id, movie id>, ratings set at 0.
         RatingList testSet = Data.getInstance().getTestSet();
 
+//        verificationSet.forEach(r -> {
+//            System.out.println(r.getRating());
+//        });
+
         long startTime = System.currentTimeMillis();
         // Predict ratings.
         RatingList predictions = NearestNeighbour.predictRatings(trainingSet, testSet);
