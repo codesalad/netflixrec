@@ -40,7 +40,9 @@ public class CF {
         });
 
         for (int i = 0; i < outputList.size(); i++) {
+//            System.out.println("\n----------------------------------------------------------\n");
             Rating toRate = outputList.get(i);
+//            System.out.println("To rate: " + toRate.getMovie().getIndex() + "\t" + toRate.getUser());
             ArrayList<Integer> candidates = (ArrayList<Integer>) selectCandidates(utility, toRate, Config.CF_threshold);
             List<FeatureItem> neighbours = kNearestNeighbours(Config.NN_k, toRate, candidates, utility);
             toRate.setRating(calculateRating(toRate, neighbours, utility));
@@ -90,12 +92,15 @@ public class CF {
             if (r != user.getIndex() - 1) {
                 int sum = 0;
                 for (int c = 0; c < utility.cols(); c++) {
-                    if (utility.get(r, c) > 0) { // IF the movie is RATED
+                    // IF the movie is RATED AND the rating deviation is not more than specified value in CONFIG.
+                    if (utility.get(r, c) > 0 && Math.abs(utility.get(user.getIndex() - 1, c) - utility.get(r, c)) <= Config.CF_user_deviation) {
                         if (cols.contains(c)) sum++;
                     }
                 }
-                if (sum >= tVal && utility.get(r, movie.getIndex() - 1) > 0) // could be improved: larger sum the better
+                if (sum >= tVal && utility.get(r, movie.getIndex() - 1) > 0) { // could be improved: larger sum the better
                     candidates.add(r); // add the INDEX of utility matrix
+//                    System.out.println(">candidate rated: " + sum + " movies that the user also did");
+                }
             }
         }
 

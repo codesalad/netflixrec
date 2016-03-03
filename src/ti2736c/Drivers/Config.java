@@ -33,6 +33,7 @@ public class Config {
     public static final String[] CF_methods = {"user-user", "item-item"};
     public static String CF_method;
     public static double CF_threshold;
+    public static double CF_user_deviation;
 
     /* NEAREST NEIGHBOUR ALGORITHM */
     public static int NN_k;
@@ -68,6 +69,7 @@ public class Config {
                         case "NN_distance_metric": NN_distance_metric = NN_distance_metrics[Integer.parseInt(parts[1])]; break;
                         case "CF_threshold": CF_threshold = Double.parseDouble(parts[1]); break;
                         case "CF_method": CF_method = CF_methods[Integer.parseInt(parts[1])]; break;
+                        case "CF_user_deviation": CF_user_deviation = Double.parseDouble(parts[1]); break;
                         default: break;
                     }
 

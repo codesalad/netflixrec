@@ -34,9 +34,9 @@ public class CFDriver {
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
 
-//        for (int i = 0; i < predictions.size(); i++) {
-//            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
-//        }
+        for (int i = 0; i < predictions.size(); i++) {
+            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
+        }
     }
 
     public static double testRun() {
