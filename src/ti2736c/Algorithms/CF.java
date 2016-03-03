@@ -20,31 +20,36 @@ public class CF {
      */
     public static RatingList predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
         // Create utility matrix.
+        System.out.println("Creating utility matrix...");
         Matrix utility = new Matrix(users.size(), movies.size());
         inputList.forEach(r -> {
             utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, r.getRating());
         });
 
-        // TEST:
-        Rating toRate = inputList.get(5);
-//        for (int i = 0; i < utility.cols(); i++) {
-//            System.out.print(utility.get(toRateUser.getIndex() - 1, i) + "\t");
-//        }
-
-        ArrayList<Integer> candidates = (ArrayList<Integer>) selectCandidates(utility, toRate, 0.1);
-        List<FeatureItem> neighbours =  kNearestNeighbours(Config.NN_k, toRate, candidates, utility);
-
-
-        System.out.println("To rate: " + toRate.getMovie().getIndex());
-        neighbours.forEach(f -> {
-            int index = f.getIndex();
-            System.out.println(utility.get(index, toRate.getMovie().getIndex() - 1) + "\tdist: " + f.getDistance());
-        });
-
-        System.out.println("acutal: " + toRate.getRating());
+        for (int i = 0; i < outputList.size(); i++) {
+            Rating toRate = outputList.get(i);
+            ArrayList<Integer> candidates = (ArrayList<Integer>) selectCandidates(utility, toRate, Config.CF_threshold);
+            List<FeatureItem> neighbours = kNearestNeighbours(Config.NN_k, toRate, candidates, utility);
+            toRate.setRating(calculateRating(toRate, neighbours, utility));
+            if (Config.ALLOW_STATUS_OUTPUT)
+                System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
+        }
 
         // Return predictions
         return outputList;
+    }
+
+    // take into accoutn distance
+    public static double calculateRating(Rating toRate, List<FeatureItem> neighbours, Matrix utility) {
+        double rating = 0.0;
+
+        for (FeatureItem item : neighbours) {
+            rating += utility.get(item.getIndex(), toRate.getMovie().getIndex() - 1);
+        }
+
+        rating /= neighbours.size();
+
+        return Math.round(rating);
     }
 
     public static List<Integer> selectCandidates(Matrix utility, Rating toRate, double threshold) {
@@ -119,10 +124,14 @@ public class CF {
             items.add(item);
         });
 
+        if (items.isEmpty()) {
+            items.add(new FeatureItem(toRate.getMovie().getIndex() - 1, 1));
+        }
+
         Collections.sort(items);
 
         if (k > items.size()) {
-            System.err.println("K is too large, returning all sorted candidates");
+//            System.err.println("K is too large, returning all sorted candidates");
             k = items.size();
         }
 

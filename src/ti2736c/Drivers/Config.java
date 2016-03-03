@@ -29,6 +29,9 @@ public class Config {
     public static String predictionsFile; // predictions
     public static String outputFile; // output
 
+    /* Collaborative Filtering */
+    public static double CF_threshold;
+
     /* NEAREST NEIGHBOUR ALGORITHM */
     public static int NN_k;
     public static String NN_distance_metric; // euclid, angular, cosine, acos, hamming...
@@ -60,6 +63,7 @@ public class Config {
                         case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
                         case "NN_k": NN_k = Integer.parseInt(parts[1]); break;
                         case "NN_distance_metric": NN_distance_metric = parts[1]; break;
+                        case "CF_threshold": CF_threshold = Double.parseDouble(parts[1]); break;
                         default: break;
                     }
 
