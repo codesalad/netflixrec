@@ -12,6 +12,8 @@ public class Movie {
         this.index = _index;
         this.year  = _year;
         this.title = _title;
+        this.bias = 0;
+        this.mean = 0;
     }
 
     public void setBias(double b) {

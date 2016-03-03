@@ -45,18 +45,10 @@ public class Data {
         predictionList.readFile(Config.getInstance().predictionsFile,
                 userList, movieList);
 
-        // Nothing is implemented yet.
-        if (Config.NORMALIZE)
-            normalizeData();
-
         if (Config.BIAS)
             calculateBiases();
 
         initSets();
-    }
-
-    public void normalizeData() {
-        System.out.println("Normalizing data. Does nothing now");
     }
 
     public void calculateBiases() {
@@ -193,5 +185,10 @@ public class Data {
         if (instance == null)
             instance = new Data();
         return instance;
+    }
+
+    public static synchronized void destroy() {
+        if (instance != null)
+            instance = null;
     }
 }

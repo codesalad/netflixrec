@@ -30,10 +30,13 @@ public class Config {
     public static String outputFile; // output
 
     /* Collaborative Filtering */
+    public static final String[] CF_methods = {"user-user", "item-item"};
+    public static String CF_method;
     public static double CF_threshold;
 
     /* NEAREST NEIGHBOUR ALGORITHM */
     public static int NN_k;
+    public static final String[] NN_distance_metrics = {"euclid", "cosine", "jaccard", "hamming"};
     public static String NN_distance_metric; // euclid, angular, cosine, acos, hamming...
 
     private Config() {}
@@ -62,8 +65,9 @@ public class Config {
                         case "allow_write": ALLOW_WRITE = parts[1].equals("true"); break;
                         case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
                         case "NN_k": NN_k = Integer.parseInt(parts[1]); break;
-                        case "NN_distance_metric": NN_distance_metric = parts[1]; break;
+                        case "NN_distance_metric": NN_distance_metric = NN_distance_metrics[Integer.parseInt(parts[1])]; break;
                         case "CF_threshold": CF_threshold = Double.parseDouble(parts[1]); break;
+                        case "CF_method": CF_method = CF_methods[Integer.parseInt(parts[1])]; break;
                         default: break;
                     }
 

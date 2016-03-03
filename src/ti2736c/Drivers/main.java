@@ -1,5 +1,6 @@
 package ti2736c.Drivers;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class main {
@@ -8,9 +9,16 @@ public class main {
 		Locale.setDefault(Locale.US);
         Config.getInstance().read();
 
-//        RatingList exampleList = Example.predictRatings();
-//        exampleList.writeResultsFile(Config.getInstance().outputFile);
-//        Data.getInstance().loadTrainingSet();
+        ArrayList<Double> results = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Data.getInstance();
+            results.add(CFDriver.testRun());
+            Data.destroy();
+        }
+
+        for (int i = 0; i < results.size(); i++){
+            System.out.println("RMSE" + i + "\t" + results.get(i));
+        }
     }
 
 

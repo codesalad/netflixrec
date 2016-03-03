@@ -33,5 +33,27 @@ public class CFDriver {
         RMSE.calcPrint(predictions, verificationSet);
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
+
+//        for (int i = 0; i < predictions.size(); i++) {
+//            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
+//        }
+    }
+
+    public static double testRun() {
+        // Use known data to train.
+        RatingList trainingSet = Data.getInstance().getTrainingSet();
+
+        // Test set: this serves as a verifiable PredictionList
+        // The predictions algorithm will throw out a new predictions list that differs from this one.
+        RatingList verificationSet = Data.getInstance().getVerificationSet();
+
+        // Contains <user id, movie id>, ratings set at 0.
+        RatingList testSet = Data.getInstance().getTestSet();
+
+        // Predict ratings.
+        RatingList predictions = CF.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+
+
+        return RMSE.calculate(predictions, verificationSet);
     }
 }

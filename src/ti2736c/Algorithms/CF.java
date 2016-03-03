@@ -1,5 +1,6 @@
 package ti2736c.Algorithms;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import ti2736c.Core.*;
 import ti2736c.Drivers.Config;
 
@@ -19,11 +20,26 @@ public class CF {
      * @return outputList containing predicted ratings.
      */
     public static RatingList predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+
+        if (Config.CF_method.equals(Config.CF_methods[0]))
+            return userToUser(users, movies, inputList, outputList);
+        else if (Config.CF_method.equals(Config.CF_methods[1]))
+            throw new NotImplementedException();
+
+        // Return predictions
+        return outputList;
+    }
+
+    public static RatingList userToUser(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+        System.out.println("Running user-user CF algorithm");
         // Create utility matrix.
-        System.out.println("Creating utility matrix...");
+        System.out.println("Creating utility matrix (row: user; col: movie) ...");
         Matrix utility = new Matrix(users.size(), movies.size());
         inputList.forEach(r -> {
-            utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, r.getRating());
+            if (Config.NORMALIZE)
+                utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, Math.round(r.getRating() - r.getUser().getMean()));
+            else
+                utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, r.getRating());
         });
 
         for (int i = 0; i < outputList.size(); i++) {
@@ -35,19 +51,27 @@ public class CF {
                 System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
         }
 
-        // Return predictions
+        System.out.println();
+
         return outputList;
     }
 
-    // take into accoutn distance
+    // take into account distance
     public static double calculateRating(Rating toRate, List<FeatureItem> neighbours, Matrix utility) {
         double rating = 0.0;
+
+        if (neighbours.isEmpty()) {
+            return toRate.getMovie().getMean();
+        }
 
         for (FeatureItem item : neighbours) {
             rating += utility.get(item.getIndex(), toRate.getMovie().getIndex() - 1);
         }
 
         rating /= neighbours.size();
+
+        if (Config.NORMALIZE)
+            return Math.round(rating + toRate.getUser().getMean());
 
         return Math.round(rating);
     }
@@ -60,47 +84,28 @@ public class CF {
 
         ArrayList<Integer> cols = new ArrayList<>();
 
-        // analyze user
+        // analyze user. add col indices of movies that have been rated.
         for (int c = 0; c < utility.cols(); c++) {
-            if (utility.get(user.getIndex() - 1, c) > 0) {
+            if (utility.get(user.getIndex() - 1, c) > 0)
                 cols.add(c);
-            }
         }
 
-//        System.out.println("matrix col: " + (movie.getIndex() - 1));
-//
-//        cols.forEach(i -> {
-//            System.out.print(i + "\t");
-//        });
-
-        int tVal = (int) Math.round(threshold * cols.size()); // at least 20% same cols rated as user
-//        System.out.println("atleast: " + tVal);
+        // at least % same cols rated as user, defined in Config
+        int tVal = (int) Math.round(threshold * cols.size());
 
         // Search for users who HAVE seen the movie AND have some columns in common with toRate user.
         for (int r = 0; r < utility.rows(); r++) {
             if (r != user.getIndex() - 1) {
                 int sum = 0;
-                boolean rated = false;
                 for (int c = 0; c < utility.cols(); c++) {
-                    if (utility.get(r, c) > 0) { // IF the movie is RATED:
-                        if (c == movie.getIndex() - 1) rated = true;
+                    if (utility.get(r, c) > 0) { // IF the movie is RATED
                         if (cols.contains(c)) sum++;
                     }
                 }
-                if (sum >= tVal && rated) // could be improved: larger sum the better
+                if (sum >= tVal && utility.get(r, movie.getIndex() - 1) > 0) // could be improved: larger sum the better
                     candidates.add(r); // add the INDEX of utility matrix
             }
         }
-
-//        System.out.println("Checking: ");
-//        candidates.forEach(u -> {
-//            int rowIndex = u.getIndex() - 1;
-//            for (int c = 0; c < utility.cols(); c++) {
-//                if (utility.get(rowIndex, c) > 0)
-//                    System.out.print(c + "\t");
-//            }
-//            System.out.println();
-//        });
 
         if (candidates.isEmpty())
             System.err.println("No candidates found, lower threshold or increase data set");
@@ -109,32 +114,52 @@ public class CF {
     }
 
     public static List<FeatureItem> kNearestNeighbours(int k, Rating toRate,  List<Integer> candidates, Matrix utility) {
-        assert (!candidates.isEmpty());
-
         ArrayList<FeatureItem> items = new ArrayList<>();
+
+        if (candidates.isEmpty())
+            return items;
 
         int qIndex = toRate.getUser().getIndex() - 1; // query index
 
         candidates.forEach(r -> { // index in utility matrix
-            double squaredD = 0.0;
-            for (int c = 0; c < utility.cols(); c++) {
-                squaredD += Math.pow(utility.get(qIndex, c) - utility.get(r, c), 2);
-            }
-            FeatureItem item = new FeatureItem(r, Math.sqrt(squaredD));
+            double distance = 0.0;
+            if (Config.NN_distance_metric.equals("euclid"))
+                distance = euclid(utility, qIndex, r);
+            else if (Config.NN_distance_metric.equals("cosine"))
+                distance = cosine(utility, qIndex, r);
+            else throw new NotImplementedException();
+
+
+            FeatureItem item = new FeatureItem(r, distance);
             items.add(item);
         });
 
         if (items.isEmpty()) {
-            items.add(new FeatureItem(toRate.getMovie().getIndex() - 1, 1));
+            System.err.println("No neighbours.");
+            return items;
         }
 
         Collections.sort(items);
 
-        if (k > items.size()) {
-//            System.err.println("K is too large, returning all sorted candidates");
+        if (k > items.size())
             k = items.size();
-        }
 
         return items.subList(0, k - 1);
+    }
+
+    public static double euclid(Matrix utility, int rowQuery, int rowOther) {
+        double squaredD = 0.0;
+        for (int c = 0; c < utility.cols(); c++) {
+            squaredD += Math.pow(utility.get(rowQuery, c) - utility.get(rowOther, c), 2);
+        }
+        return Math.sqrt(squaredD);
+    }
+
+    public static double cosine(Matrix utility, int rowQuery, int rowOther) {
+        double dot = 0.0;
+        for (int c = 0; c < utility.cols(); c++) {
+            dot += (utility.get(rowQuery, c) * utility.get(rowOther, c));
+        }
+        return dot / utility.cols();
     }
 }

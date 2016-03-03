@@ -11,6 +11,8 @@ public class User {
         this.male       = _male;
         this.age        = _age;
         this.profession = _profession;
+        this.bias = 0;
+        this.mean = 0;
     }
 
     public void setBias(double b) {
