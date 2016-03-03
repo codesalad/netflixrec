@@ -36,10 +36,7 @@ public class CF {
         System.out.println("Creating utility matrix (row: user; col: movie) ...");
         Matrix utility = new Matrix(users.size(), movies.size());
         inputList.forEach(r -> {
-            if (Config.NORMALIZE)
-                utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, Math.round(r.getRating() - r.getUser().getMean()));
-            else
-                utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, r.getRating());
+            utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, r.getRating());
         });
 
         for (int i = 0; i < outputList.size(); i++) {
@@ -50,8 +47,6 @@ public class CF {
             if (Config.ALLOW_STATUS_OUTPUT)
                 System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
         }
-
-        System.out.println();
 
         return outputList;
     }
@@ -69,9 +64,6 @@ public class CF {
         }
 
         rating /= neighbours.size();
-
-        if (Config.NORMALIZE)
-            return Math.round(rating + toRate.getUser().getMean());
 
         return Math.round(rating);
     }
