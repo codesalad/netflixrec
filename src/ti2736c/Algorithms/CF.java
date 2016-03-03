@@ -39,16 +39,27 @@ public class CF {
             utility.set(r.getUser().getIndex() - 1, r.getMovie().getIndex()-  1, r.getRating());
         });
 
+        int emptyCandidates = 0;
+        int emptyNeighbours = 0;
+
         for (int i = 0; i < outputList.size(); i++) {
 //            System.out.println("\n----------------------------------------------------------\n");
             Rating toRate = outputList.get(i);
 //            System.out.println("To rate: " + toRate.getMovie().getIndex() + "\t" + toRate.getUser());
             ArrayList<Integer> candidates = (ArrayList<Integer>) selectCandidates(utility, toRate, Config.CF_threshold);
+
+            if (candidates.isEmpty()) emptyCandidates++;
+
             List<FeatureItem> neighbours = kNearestNeighbours(Config.NN_k, toRate, candidates, utility);
+
+            if (neighbours.isEmpty()) emptyNeighbours++;
+
             toRate.setRating(calculateRating(toRate, neighbours, utility));
             if (Config.ALLOW_STATUS_OUTPUT)
                 System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
         }
+
+        System.out.println("\nTotal empty candidates: " + emptyCandidates + "\tTotal empty Neighbours: " + emptyNeighbours);
 
         return outputList;
     }
@@ -104,8 +115,8 @@ public class CF {
             }
         }
 
-        if (candidates.isEmpty())
-            System.err.println("No candidates found, lower threshold or increase data set");
+//        if (candidates.isEmpty())
+//            System.err.println("No candidates found, lower threshold or increase data set");
 
         return candidates;
     }
