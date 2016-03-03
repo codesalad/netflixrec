@@ -3,7 +3,7 @@ package ti2736c.Core;
 public class User {
 
     int index, age, profession;
-    double bias;
+    double bias, mean;
     boolean male;
     
 	public User(int _index, boolean _male, int _age, int _profession) {
@@ -19,6 +19,14 @@ public class User {
 
     public double getBias() {
         return bias;
+    }
+
+    public void setMean(double m) {
+        this.mean = m;
+    }
+
+    public double getMean() {
+        return mean;
     }
     
     public int getIndex() {

@@ -6,15 +6,15 @@ package ti2736c.Core;
 public class FeatureItem implements Comparable<FeatureItem> {
 
     double distance;
-    FeatureVector vector;
+    Integer index; // (row) index
 
-    public FeatureItem(FeatureVector vector, double distance) {
-        this.vector = vector;
+    public FeatureItem(Integer index, double distance) {
+        this.index = index;
         this.distance = distance;
     }
 
-    public FeatureVector getVector() {
-        return vector;
+    public Integer getIndex() {
+        return index;
     }
 
     public double getDistance() {

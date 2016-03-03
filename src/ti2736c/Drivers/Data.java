@@ -45,7 +45,7 @@ public class Data {
         predictionList.readFile(Config.getInstance().predictionsFile,
                 userList, movieList);
 
-        // Only user rating is normalized at the moment.
+        // Nothing is implemented yet.
         if (Config.NORMALIZE)
             normalizeData();
 
@@ -60,6 +60,8 @@ public class Data {
     }
 
     public void calculateBiases() {
+        System.out.print("Calculating biases & means...");
+
         double mean = ratingList.get(0).getRating();
         for (int i = 1; i < ratingList.size(); i++) {
                 mean = ((double) i / ((double) i + 1.0)) * mean
@@ -82,14 +84,18 @@ public class Data {
 
         for (User u : userList) {
             double m = user_ratings.get(u.getIndex()).stream().mapToDouble(d -> d).average().getAsDouble();
+            u.setMean(m);
             u.setBias(m - mean);
         }
 
         for (Movie m : movieList) {
             if (movie_ratings.get(m.getIndex()) == null) continue;
             double m2 = movie_ratings.get(m.getIndex()).stream().mapToDouble(d -> d).average().getAsDouble();
+            m.setMean(m2);
             m.setBias(m2 - mean);
         }
+
+        System.out.print(" Done!\n");
     }
 
     /**
@@ -109,7 +115,7 @@ public class Data {
         Random rnd = new Random();
 
         if (Config.RANDOMIZE_SETS) {
-            System.out.println("Randomizing training/test sets...");
+            System.out.print("Randomizing training/test sets...");
             RatingList temp = new RatingList();
             temp.addAll(ratingList);
 
@@ -120,8 +126,10 @@ public class Data {
                 if (!temp.isEmpty()) verificationSet.add(temp.remove(rnd.nextInt(temp.size())));
                 else verificationSet.add(ratingList.get(rnd.nextInt(ratingList.size())));
             }
+
+            System.out.print(" Done!\n");
         } else {
-            System.out.println("Creating non-random training/test sets...");
+            System.out.print("Creating non-random training/test sets...");
             trainingSet.addAll(ratingList.subList(0, trainingSize));
             if (trainingSize + testSize > ratingList.size()) {
                 verificationSet.addAll(ratingList.subList(trainingSize + 1, ratingList.size() - 1));
@@ -130,6 +138,7 @@ public class Data {
             } else {
                 verificationSet.addAll(ratingList.subList(trainingSize + 1, trainingSize + testSize - 1));
             }
+            System.out.print(" Done!\n");
         }
         // add all ratings to test set, but set ratings at 0.
         verificationSet.forEach(r -> testSet.add(new Rating(r.getUser(), r.getMovie(), 0.0)));

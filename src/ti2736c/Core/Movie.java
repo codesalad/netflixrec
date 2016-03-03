@@ -5,7 +5,7 @@ package ti2736c.Core;
 public class Movie {
     
     int index, year;
-    double bias;
+    double bias, mean;
     String title;
     
 	public Movie(int _index, int _year, String _title) {
@@ -20,6 +20,14 @@ public class Movie {
 
     public double getBias() {
         return bias;
+    }
+
+    public void setMean(double m) {
+        this.mean = m;
+    }
+
+    public double getMean() {
+        return mean;
     }
 
     public int getIndex() {

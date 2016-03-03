@@ -1,14 +1,13 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.NearestNeighbour;
+import ti2736c.Algorithms.CF;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
 /**
- * Created by codesalad on 27-2-16.
+ * Created by codesalad on 3-3-16.
  */
-public class NNDriver {
-
+public class CFDriver {
     public static void main(String[] args) {
         /* Initialize configs */
         Config.getInstance().read();
@@ -23,13 +22,9 @@ public class NNDriver {
         // Contains <user id, movie id>, ratings set at 0.
         RatingList testSet = Data.getInstance().getTestSet();
 
-//        verificationSet.forEach(r -> {
-//            System.out.println(r.getRating());
-//        });
-
         long startTime = System.currentTimeMillis();
         // Predict ratings.
-        RatingList predictions = NearestNeighbour.predictRatings(trainingSet, testSet);
+        RatingList predictions = CF.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
 
         if (Config.ALLOW_WRITE)
             predictions.writeResultsFile(Config.outputFile);
