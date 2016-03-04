@@ -47,14 +47,12 @@ public class Data {
         predictionList.readFile(Config.getInstance().predictionsFile,
                 userList, movieList);
 
-        if (Config.BIAS)
-            calculateBiases();
-
+        calculateMean();
         initSets();
     }
 
-    public void calculateBiases() {
-        System.out.print("Calculating biases & means...");
+    public void calculateMean() {
+        System.out.println("Calculating overall mean...");
 
         mean = ratingList.get(0).getRating();
         for (int i = 1; i < ratingList.size(); i++) {
@@ -63,33 +61,6 @@ public class Data {
                         * ratingList.get(i).getRating();
         }
 
-        Map<Integer, List<Double>> user_ratings = new HashMap<>();
-        Map<Integer, List<Double>> movie_ratings = new HashMap<>();
-
-        ratingList.forEach(r -> {
-            if (!user_ratings.containsKey(r.getUser().getIndex()))
-                user_ratings.put(r.getUser().getIndex(), new LinkedList<>());
-            user_ratings.get(r.getUser().getIndex()).add(r.getRating());
-
-            if (!movie_ratings.containsKey(r.getMovie().getIndex()))
-                movie_ratings.put(r.getMovie().getIndex(), new LinkedList<>());
-            movie_ratings.get(r.getMovie().getIndex()).add(r.getRating());
-        });
-
-        for (User u : userList) {
-            double m = user_ratings.get(u.getIndex()).stream().mapToDouble(d -> d).average().getAsDouble();
-            u.setMean(m);
-            u.setBias(m - mean);
-        }
-
-        for (Movie m : movieList) {
-            if (movie_ratings.get(m.getIndex()) == null) continue;
-            double m2 = movie_ratings.get(m.getIndex()).stream().mapToDouble(d -> d).average().getAsDouble();
-            m.setMean(m2);
-            m.setBias(m2 - mean);
-        }
-
-        System.out.print(" Done!\n");
     }
 
     /**

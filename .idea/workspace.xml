@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_i2i.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CollaborativeFiltering.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFIIDriver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFUUDriver.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CF.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_u2u.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Core/Matrix.class" afterPath="$PROJECT_DIR$/data/ti2736c/Core/Matrix.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/CFDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/CFDriver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/main.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Core/Matrix.java" afterPath="$PROJECT_DIR$/src/ti2736c/Core/Matrix.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submission.csv" afterPath="$PROJECT_DIR$/submission.csv" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,34 +36,24 @@
     <favorites_list name="Netflixrec" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.16018845">
+    <splitter split-orientation="horizontal" split-proportion="0.43024495">
       <split-first>
         <leaf>
-          <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Matrix.java">
+          <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="162" selection-end-column="59" />
+                  <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="FeatureItem.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/FeatureItem.java">
+          <file leaf-file-name="settings.config" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/settings.config">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CFUUDriver.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFUUDriver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="39" column="83" selection-start-line="39" selection-start-column="83" selection-end-line="39" selection-end-column="83" />
+                <state vertical-scroll-proportion="0.2545969">
+                  <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -84,7 +63,7 @@
             <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+                  <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="38" selection-end-column="11" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -92,11 +71,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CFIIDriver.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFIIDriver.java">
+          <file leaf-file-name="CFMatrices.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+                  <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -104,37 +83,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
+          <file leaf-file-name="RMSE.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#6065#6066#0" expanded="true" />
-                    <element signature="e#6097#6098#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="settings.config" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/settings.config">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.49275362">
-                  <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+                  <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CF_i2i.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF_i2i.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -143,23 +97,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="CF_i2i.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF_i2i.java">
+          <file leaf-file-name="CFMatrices2.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CFMatrices.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.39130434">
-                  <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+                <state vertical-scroll-proportion="0.7454031">
+                  <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -196,7 +138,6 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/Example.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/RatingList.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/FeatureVector.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/NNDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/NearestNeighbour.java" />
@@ -207,15 +148,17 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CollaborativeFiltering.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_u2u.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFUUDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFIIDriver.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_i2i.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/Matrix.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFMatricesDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
         <option value="$PROJECT_DIR$/settings.config" />
       </list>
     </option>
@@ -233,9 +176,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="728" />
     <option name="y" value="29" />
-    <option name="width" value="1192" />
+    <option name="width" value="1920" />
     <option name="height" value="1051" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -1111,15 +1053,15 @@
       <workItem from="1456592980732" duration="3183000" />
       <workItem from="1456604860237" duration="6897000" />
       <workItem from="1456613241014" duration="45734000" />
-      <workItem from="1456959793625" duration="59718000" />
+      <workItem from="1456959793625" duration="66331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137576000" />
+    <option name="totallyTimeSpent" value="144189000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="728" y="29" width="1192" height="1051" extended-state="0" />
+    <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1129,10 +1071,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29685807" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20368364" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.059130434" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983023" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1202,7 +1144,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1228,7 +1170,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1254,10 +1196,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
           <folding>
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#529#530#0" expanded="false" />
+            <element signature="e#556#557#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1275,7 +1217,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1293,10 +1235,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
           <folding>
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#529#530#0" expanded="false" />
+            <element signature="e#556#557#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1314,10 +1256,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
           <folding>
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#529#530#0" expanded="false" />
+            <element signature="e#556#557#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1385,16 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1439,7 +1371,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1457,7 +1389,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="64" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1467,8 +1399,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
           <folding>
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#718#719#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="false" />
+            <element signature="e#718#719#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1478,8 +1410,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding>
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="false" />
+            <element signature="e#627#628#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1489,8 +1421,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding>
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="false" />
+            <element signature="e#556#557#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1508,7 +1440,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1518,7 +1450,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1527,7 +1459,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#342#343#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#493#494#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1536,17 +1475,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="83" selection-start-line="39" selection-start-column="83" selection-end-line="39" selection-end-column="83" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
-          <folding>
-            <element signature="e#6065#6066#0" expanded="true" />
-            <element signature="e#6097#6098#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1566,7 +1494,7 @@
         <state vertical-scroll-proportion="0.36363637">
           <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1581,10 +1509,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="162" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF_i2i.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1594,36 +1548,36 @@
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="38" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Matrix.java">
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="162" selection-end-column="59" />
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39130434">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.config">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49275362">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.2545969">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7454031">
+          <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

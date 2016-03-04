@@ -1,6 +1,6 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.CFMatrices;
+import ti2736c.Algorithms.CFMatrices2;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
@@ -24,7 +24,7 @@ public class CFDriver {
 
         long startTime = System.currentTimeMillis();
         // Predict ratings.
-        RatingList predictions = CFMatrices.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+        RatingList predictions = CFMatrices2.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
 
         if (Config.ALLOW_WRITE)
             predictions.writeResultsFile(Config.outputFile);
