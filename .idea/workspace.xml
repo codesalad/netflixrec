@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/CFDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/CFDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +47,8 @@
           <file leaf-file-name="settings.config" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/settings.config">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2545969">
-                  <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+                <state vertical-scroll-proportion="0.35643566">
+                  <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -100,8 +95,8 @@
           <file leaf-file-name="CFMatrices2.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7454031">
-                  <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
+                <state vertical-scroll-proportion="1.0763791">
+                  <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -158,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
         <option value="$PROJECT_DIR$/settings.config" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
       </list>
     </option>
   </component>
@@ -1053,12 +1048,12 @@
       <workItem from="1456592980732" duration="3183000" />
       <workItem from="1456604860237" duration="6897000" />
       <workItem from="1456613241014" duration="45734000" />
-      <workItem from="1456959793625" duration="66331000" />
+      <workItem from="1456959793625" duration="70675000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144189000" />
+    <option name="totallyTimeSpent" value="148533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
@@ -1565,16 +1560,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.config">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2545969">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.35643566">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7454031">
-          <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
+        <state vertical-scroll-proportion="1.0763791">
+          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
