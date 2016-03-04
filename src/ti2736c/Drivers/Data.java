@@ -20,6 +20,8 @@ public class Data {
     private RatingList verificationSet;
     private RatingList predictionList;
 
+    private double mean;
+
     private Map<Integer, List<Double>> user_rating;
 
     private Data() {
@@ -54,7 +56,7 @@ public class Data {
     public void calculateBiases() {
         System.out.print("Calculating biases & means...");
 
-        double mean = ratingList.get(0).getRating();
+        mean = ratingList.get(0).getRating();
         for (int i = 1; i < ratingList.size(); i++) {
                 mean = ((double) i / ((double) i + 1.0)) * mean
                         + (1.0 / ((double) i + 1.0))
@@ -179,6 +181,10 @@ public class Data {
 
     public RatingList getPredictionList() {
         return predictionList;
+    }
+
+    public double getMean() {
+        return this.mean;
     }
 
     public static synchronized Data getInstance() {

@@ -142,4 +142,25 @@ public class Matrix extends ArrayList<Double> {
         return result.substring(0, result.length() - 3);
     }
 
+    public static double euclid(Matrix utility, int rowQuery, int rowOther) {
+        double squaredD = 0.0;
+        for (int c = 0; c < utility.cols(); c++) {
+            squaredD += Math.pow(utility.get(rowQuery, c) - utility.get(rowOther, c), 2);
+        }
+        return Math.sqrt(squaredD);
+    }
+
+    public static double cosine(Matrix utility, int rowQuery, int rowOther) {
+        double dot = 0.0;
+        double normA = 0.0;
+        double normB = 0.0;
+
+        for (int c = 0; c < utility.cols(); c++) {
+            dot += (utility.get(rowQuery, c) * utility.get(rowOther, c));
+            normA += Math.pow(utility.get(rowQuery, c), 2);
+            normB += Math.pow(utility.get(rowOther, c), 2);
+        }
+        return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+    }
+
 }

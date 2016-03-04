@@ -12,7 +12,7 @@ public class main {
         ArrayList<Double> results = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             Data.getInstance();
-            results.add(CFDriver.testRun());
+            results.add(CFUUDriver.testRun());
             Data.destroy();
         }
 

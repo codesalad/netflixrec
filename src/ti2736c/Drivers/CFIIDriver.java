@@ -1,16 +1,18 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.CFMatrices;
+import ti2736c.Algorithms.CF_i2i;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
 /**
  * Created by codesalad on 3-3-16.
  */
-public class CFDriver {
+public class CFIIDriver {
     public static void main(String[] args) {
         /* Initialize configs */
         Config.getInstance().read();
+
+        CF_i2i ii = new CF_i2i();
 
         // Use known data to train.
         RatingList trainingSet = Data.getInstance().getTrainingSet();
@@ -24,7 +26,7 @@ public class CFDriver {
 
         long startTime = System.currentTimeMillis();
         // Predict ratings.
-        RatingList predictions = CFMatrices.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+        RatingList predictions = ii.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
 
         if (Config.ALLOW_WRITE)
             predictions.writeResultsFile(Config.outputFile);

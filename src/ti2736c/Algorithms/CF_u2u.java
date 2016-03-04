@@ -1,17 +1,16 @@
 package ti2736c.Algorithms;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import ti2736c.Core.*;
 import ti2736c.Drivers.Config;
+import ti2736c.Drivers.Data;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by codesalad on 3-3-16.
  */
-public class CF {
+public class CF_u2u extends CollaborativeFiltering {
 
     /**
      * Predicts new ratings for user-movie pairs.
@@ -19,19 +18,8 @@ public class CF {
      * @param outputList RatingList. Contains yet-to-predict ratings (init at 0.0).
      * @return outputList containing predicted ratings.
      */
-    public static RatingList predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
-
-        if (Config.CF_method.equals(Config.CF_methods[0]))
-            return userToUser(users, movies, inputList, outputList);
-        else if (Config.CF_method.equals(Config.CF_methods[1]))
-            throw new NotImplementedException();
-
-        // Return predictions
-        return outputList;
-    }
-
-    public static RatingList userToUser(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
-        System.out.println("Running user-user CF algorithm");
+    public RatingList predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+        System.out.println("Running user-user CF_u2u algorithm");
         // Create utility matrix.
         System.out.println("Creating utility matrix (row: user; col: movie) ...");
         Matrix utility = new Matrix(users.size(), movies.size());
@@ -50,7 +38,7 @@ public class CF {
 
             if (candidates.isEmpty()) emptyCandidates++;
 
-            List<FeatureItem> neighbours = kNearestNeighbours(Config.NN_k, toRate, candidates, utility);
+            List<FeatureItem> neighbours = kNearestNeighbours(Config.NN_k, toRate.getUser().getIndex() - 1, candidates, utility);
 
             if (neighbours.isEmpty()) emptyNeighbours++;
 
@@ -65,23 +53,33 @@ public class CF {
     }
 
     // take into account distance
-    public static double calculateRating(Rating toRate, List<FeatureItem> neighbours, Matrix utility) {
-        double rating = 0.0;
+    @Override
+    public double calculateRating(Rating toRate, List<FeatureItem> neighbours, Matrix utility) {
+        double bxi = Data.getInstance().getMean()
+                + toRate.getUser().getBias() + toRate.getMovie().getBias();
 
-        if (neighbours.isEmpty()) {
-            return toRate.getMovie().getMean();
-        }
+        if (neighbours.isEmpty())
+            return Math.round(bxi);
 
+        double numerator = 0.0;
+        double denominator = 0.0;
+
+//        double bxi = toRate.getMovie().getMean() + toRate.getUser().getBias() + toRate.getMovie().getBias();
+//
         for (FeatureItem item : neighbours) {
-            rating += utility.get(item.getIndex(), toRate.getMovie().getIndex() - 1);
+            double bxj = Data.getInstance().getMean()
+                    + Data.getInstance().getUserList().get(item.getIndex()).getBias()
+                    + toRate.getMovie().getBias();
+            numerator += (utility.get(item.getIndex(), toRate.getMovie().getIndex() - 1)
+                    - bxj) * item.getDistance();
+            denominator += item.getDistance();
         }
 
-        rating /= neighbours.size();
-
-        return Math.round(rating);
+        return Math.round(bxi + (numerator/denominator));
     }
 
-    public static List<Integer> selectCandidates(Matrix utility, Rating toRate, double threshold) {
+    @Override
+    public List<Integer> selectCandidates(Matrix utility, Rating toRate, double threshold) {
         User user = toRate.getUser();
         Movie movie = toRate.getMovie();
 
@@ -119,55 +117,5 @@ public class CF {
 //            System.err.println("No candidates found, lower threshold or increase data set");
 
         return candidates;
-    }
-
-    public static List<FeatureItem> kNearestNeighbours(int k, Rating toRate,  List<Integer> candidates, Matrix utility) {
-        ArrayList<FeatureItem> items = new ArrayList<>();
-
-        if (candidates.isEmpty())
-            return items;
-
-        int qIndex = toRate.getUser().getIndex() - 1; // query index
-
-        candidates.forEach(r -> { // index in utility matrix
-            double distance = 0.0;
-            if (Config.NN_distance_metric.equals("euclid"))
-                distance = euclid(utility, qIndex, r);
-            else if (Config.NN_distance_metric.equals("cosine"))
-                distance = cosine(utility, qIndex, r);
-            else throw new NotImplementedException();
-
-
-            FeatureItem item = new FeatureItem(r, distance);
-            items.add(item);
-        });
-
-        if (items.isEmpty()) {
-            System.err.println("No neighbours.");
-            return items;
-        }
-
-        Collections.sort(items);
-
-        if (k > items.size())
-            k = items.size();
-
-        return items.subList(0, k - 1);
-    }
-
-    public static double euclid(Matrix utility, int rowQuery, int rowOther) {
-        double squaredD = 0.0;
-        for (int c = 0; c < utility.cols(); c++) {
-            squaredD += Math.pow(utility.get(rowQuery, c) - utility.get(rowOther, c), 2);
-        }
-        return Math.sqrt(squaredD);
-    }
-
-    public static double cosine(Matrix utility, int rowQuery, int rowOther) {
-        double dot = 0.0;
-        for (int c = 0; c < utility.cols(); c++) {
-            dot += (utility.get(rowQuery, c) * utility.get(rowOther, c));
-        }
-        return dot / utility.cols();
     }
 }
