@@ -14,10 +14,10 @@ import ti2736c.Drivers.Data;
 public class LFM {
 
     /* Max epochs to run */
-    private static int EPOCHS = 100;
+    private static int EPOCHS = 280;
 
     /* Length of feature matrices */
-    private static int FEATURE_LENGTH = 20;
+    private static int FEATURE_LENGTH = 25;
 
     /* Learning rate */
     private static double ALPHA = 0.0025;
@@ -113,6 +113,7 @@ public class LFM {
                             double userCurrent = userFactors.getEntry(k, j);
 
                             // gradient decent (differentiate, etc)
+                            //2*eij..
                             double movieUpdated = movieCurrent + (ALPHA * (eij*userCurrent - (BETA*movieCurrent) ) );
                             double userUpdated = userCurrent + (ALPHA * (eij*movieCurrent - (BETA*userCurrent) ) );
 

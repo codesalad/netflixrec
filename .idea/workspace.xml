@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submission.csv" afterPath="$PROJECT_DIR$/submission.csv" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +58,8 @@
       <file leaf-file-name="LFM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22620904">
-              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            <state vertical-scroll-proportion="-1.1060842">
+              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1018,12 +1014,12 @@
       <workItem from="1456604860237" duration="6897000" />
       <workItem from="1456613241014" duration="45734000" />
       <workItem from="1456959793625" duration="77032000" />
-      <workItem from="1457185889976" duration="26355000" />
+      <workItem from="1457185889976" duration="27663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181245000" />
+    <option name="totallyTimeSpent" value="182553000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="29" width="960" height="1051" extended-state="4" />
@@ -1695,8 +1691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22620904">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        <state vertical-scroll-proportion="-1.1060842">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
