@@ -104,12 +104,11 @@ public class CFMatrices2 {
         double normB = 0.0;
 
         for (int c = 0; c < utility[0].length ; c++) {
-                dot += utility[query][c] * utility[other][c];
-                normA += Math.pow(utility[query][c], 2);
-                normB += Math.pow(utility[other][c], 2);
+            dot += utility[query][c] * utility[other][c];
+            normA += Math.pow(utility[query][c], 2);
+            normB += Math.pow(utility[other][c], 2);
         }
-        if (normA == 0) normA = 1;
-        if (normB == 0) normB = 1;
+        if (normA == 0 || normB == 0) return 0.0;
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));
     }
 
