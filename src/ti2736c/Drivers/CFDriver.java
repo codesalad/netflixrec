@@ -1,7 +1,5 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.CFMatrices2;
-import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
 /**
@@ -24,15 +22,15 @@ public class CFDriver {
 
         long startTime = System.currentTimeMillis();
         // Predict ratings.
-        RatingList predictions = CFMatrices2.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+//        RatingList predictions = CFMatrices2.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
 
-        if (Config.ALLOW_WRITE)
-            predictions.writeResultsFile(Config.outputFile);
+//        if (Config.ALLOW_WRITE)
+//            predictions.writeResultsFile(Config.outputFile);
 
         // Verify the predictions.
-        RMSE.calcPrint(predictions, verificationSet);
-        long endTime = System.currentTimeMillis();
-        System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
+//        RMSE.calcPrint(predictions, verificationSet);
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
 
 //        for (int i = 0; i < predictions.size(); i++) {
 //            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());

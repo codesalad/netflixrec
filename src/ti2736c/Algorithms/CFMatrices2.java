@@ -4,11 +4,15 @@ import ti2736c.Core.*;
 import ti2736c.Drivers.Config;
 import ti2736c.Drivers.Data;
 
+import java.util.ArrayList;
+
 /**
  * Created by codesalad on 4-3-16.
  */
 public class CFMatrices2 {
-    public static RatingList predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+    public static ArrayList<Double> predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+        ArrayList<Double> results = new ArrayList<>();
+
         double mean = Data.getInstance().getMean();
 
         //create utility matrix
@@ -78,16 +82,18 @@ public class CFMatrices2 {
 
             if (numerator == 0 || denominator == 0
                     || Double.isNaN(numerator) || Double.isNaN(denominator)) {
-                toRate.setRating(bxi);
+//                toRate.setRating(bxi);
+                results.add(bxi);
             } else {
-                toRate.setRating(bxi + (numerator/denominator));
+//                toRate.setRating(bxi + (numerator/denominator));
+                results.add(bxi + (numerator/denominator));
             }
 
             if (Config.ALLOW_STATUS_OUTPUT)
                 System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
 
         }
-        return outputList;
+        return results;
     }
 
     public static double euclid(double[][] utility, int query, int other) {
@@ -108,7 +114,8 @@ public class CFMatrices2 {
             normA += Math.pow(utility[query][c], 2);
             normB += Math.pow(utility[other][c], 2);
         }
-        if (normA == 0 || normB == 0) return 0.0;
+        if (normA == 0) normA = 1;
+        if (normB == 0) normB = 1;
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));
     }
 

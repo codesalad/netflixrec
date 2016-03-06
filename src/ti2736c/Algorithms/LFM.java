@@ -8,19 +8,21 @@ import ti2736c.Core.RatingList;
 import ti2736c.Core.UserList;
 import ti2736c.Drivers.Data;
 
+import java.util.ArrayList;
+
 /**
  * Created by codesalad on 5-3-16.
  */
 public class LFM {
 
     /* Max epochs to run */
-    private static int EPOCHS = 280;
+    private static int EPOCHS = 350;
 
     /* Length of feature matrices */
     private static int FEATURE_LENGTH = 25;
 
     /* Learning rate */
-    private static double ALPHA = 0.0025;
+    private static double ALPHA = 0.0015;
 
     /* Regulate value */
     private static double BETA = 0.06;
@@ -28,7 +30,9 @@ public class LFM {
     /* Value to stop at */
     private static double EPSILON = 0.0002;
 
-    public static RatingList predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+    public static ArrayList<Double> predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
+        ArrayList<Double> result = new ArrayList<>();
+
         double mean = Data.getInstance().getMean();
 
         System.out.println("Creating utility matrix...");
@@ -106,10 +110,10 @@ public class LFM {
                                 + (avgUserRatings[j] - mean));
 
 
-//                        if(prediction > 5.0)
-//                            prediction = 5.0;
-//                        else if(prediction < 1.0)
-//                            prediction = 1.0;
+                        if(prediction > 5.0)
+                            prediction = 5.0;
+                        else if(prediction < 1.0)
+                            prediction = 1.0;
 
                         double eij = utility.getEntry(i, j) - prediction;
 
@@ -134,23 +138,24 @@ public class LFM {
         }
 
         // this is the resulting matrix
-        RealMatrix result = movieFactors.multiply(userFactors);
+        RealMatrix product = movieFactors.multiply(userFactors);
 
 //        for (int i = 0; i < movies.size(); i++) { // rows are movies
 //            for (int j = 0; j < users.size(); j++) { // columns are users
-//                System.out.print(result.getEntry(i, j) + "\t");
+//                System.out.print(product.getEntry(i, j) + "\t");
 //            }
 //            System.out.println();
 //        }
 
         outputList.forEach(r -> {
-            double dot = result.getEntry(r.getMovie().getIndex() - 1, r.getUser().getIndex() - 1);
+            double dot = product.getEntry(r.getMovie().getIndex() - 1, r.getUser().getIndex() - 1);
             double uBias = avgUserRatings[r.getUser().getIndex()-1] - mean;
             double mBias = avgMovieRatings[r.getMovie().getIndex()-1] - mean;
 
-            r.setRating(dot + mean + uBias + mBias);
+//            r.setRating(dot + mean + uBias + mBias);
+            result.add(dot+mean+uBias+mBias);
         });
 
-        return outputList;
+        return result;
     }
 }
