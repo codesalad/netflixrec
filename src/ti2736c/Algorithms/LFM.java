@@ -104,7 +104,13 @@ public class LFM {
                         double prediction = (predTemp + mean
                                 + (avgMovieRatings[i] - mean)
                                 + (avgUserRatings[j] - mean));
-                        
+
+
+//                        if(prediction > 5.0)
+//                            prediction = 5.0;
+//                        else if(prediction < 1.0)
+//                            prediction = 1.0;
+
                         double eij = utility.getEntry(i, j) - prediction;
 
                         for (int k = 0; k < FEATURE_LENGTH; k++) {
