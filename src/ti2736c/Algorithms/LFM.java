@@ -14,16 +14,16 @@ import ti2736c.Drivers.Data;
 public class LFM {
 
     /* Max epochs to run */
-    private static int EPOCHS = 150;
+    private static int EPOCHS = 100;
 
     /* Length of feature matrices */
     private static int FEATURE_LENGTH = 20;
 
     /* Learning rate */
-    private static double ALPHA = 0.0035;
+    private static double ALPHA = 0.0025;
 
     /* Regulate value */
-    private static double BETA = 0.02;
+    private static double BETA = 0.06;
 
     /* Value to stop at */
     private static double EPSILON = 0.0002;
@@ -47,13 +47,13 @@ public class LFM {
 
         for (int m = 0; m < movies.size(); m++) {
             for (int f = 0; f < FEATURE_LENGTH; f++) {
-                movieFactors.setEntry(m, f, 0.1);
+                movieFactors.setEntry(m, f, Math.random());
             }
         }
 
         for (int f = 0; f < FEATURE_LENGTH; f++) {
             for (int u = 0; u < users.size(); u++) {
-                userFactors.setEntry(f, u, 0.1);
+                userFactors.setEntry(f, u, Math.random());
             }
         }
 
@@ -93,7 +93,7 @@ public class LFM {
         // loop through epochs
         for (int e = 0; e < EPOCHS; e++) {
 
-            System.out.println("Beginning epoch: " + (e + 1));
+            System.out.printf("\rBeginning epoch: %d/%d", (e+1), EPOCHS);
             for (int i = 0; i < movies.size(); i++) { // rows are movies
                 for (int j = 0; j < users.size(); j++) { // columns are users
                     if (utility.getEntry(i, j) > 0.0) {
@@ -101,7 +101,10 @@ public class LFM {
                         double predTemp = movieFactors.getRowVector(i)
                                 .dotProduct(userFactors.getColumnVector(j));
 
-                        double eij = utility.getEntry(i, j) - predTemp;
+                        double eij = utility.getEntry(i, j) - (predTemp + mean
+                                + (avgMovieRatings[i] - mean)
+                                + (avgUserRatings[j] - mean));
+
                         for (int k = 0; k < FEATURE_LENGTH; k++) {
                             // Update factor matrices according to error
 
@@ -110,8 +113,8 @@ public class LFM {
                             double userCurrent = userFactors.getEntry(k, j);
 
                             // gradient decent (differentiate, etc)
-                            double movieUpdated = movieCurrent + (ALPHA * (2 *eij*userCurrent - (BETA*movieCurrent) ) );
-                            double userUpdated = userCurrent + (ALPHA * (2*eij*movieCurrent - (BETA*userCurrent) ) );
+                            double movieUpdated = movieCurrent + (ALPHA * (eij*userCurrent - (BETA*movieCurrent) ) );
+                            double userUpdated = userCurrent + (ALPHA * (eij*movieCurrent - (BETA*userCurrent) ) );
 
                             movieFactors.setEntry(i, k, movieUpdated);
                             userFactors.setEntry(k, j, userUpdated);
@@ -132,7 +135,11 @@ public class LFM {
 //        }
 
         outputList.forEach(r -> {
-            r.setRating(result.getEntry(r.getMovie().getIndex() - 1, r.getUser().getIndex() - 1));
+            double dot = result.getEntry(r.getMovie().getIndex() - 1, r.getUser().getIndex() - 1);
+            double uBias = avgUserRatings[r.getUser().getIndex()-1] - mean;
+            double mBias = avgMovieRatings[r.getMovie().getIndex()-1] - mean;
+
+            r.setRating(dot + mean + uBias + mBias);
         });
 
         return outputList;

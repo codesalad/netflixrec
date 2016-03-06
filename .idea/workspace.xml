@@ -2,34 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/apidocs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CFMatrices.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CF_i2i.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CF_u2u.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CollaborativeFiltering.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Core/FeatureItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Core/FeatureVector.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Core/Matrix.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/CFIIDriver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/CFUUDriver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_i2i.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_u2u.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CollaborativeFiltering.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Core/FeatureItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Core/FeatureVector.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Core/Matrix.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFIIDriver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFUUDriver.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CFMatrices2.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/CFMatrices2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/main.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Netflixrec.iml" afterPath="$PROJECT_DIR$/.idea/Netflixrec.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submission.csv" afterPath="$PROJECT_DIR$/submission.csv" />
     </list>
     <ignored path="Netflixrec.iws" />
@@ -58,107 +36,42 @@
     <favorites_list name="Netflixrec" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.849631">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="RMSE.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="settings.config" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/settings.config">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CFDriver.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="26" column="140" selection-start-line="26" selection-start-column="140" selection-end-line="26" selection-end-column="140" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LFM.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5119617">
-                  <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Rating.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Core/Rating.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#681#682#0" expanded="true" />
-                    <element signature="e#718#719#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LFMDriver.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CFMatrices2.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="submission.csv" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/submission.csv">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.36842105">
-                  <caret line="90004" column="0" selection-start-line="90004" selection-start-column="0" selection-end-line="90005" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="settings.config" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LFMDriver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="92" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LFM.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22620904">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -206,8 +119,8 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" />
-        <option value="$PROJECT_DIR$/settings.config" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
+        <option value="$PROJECT_DIR$/settings.config" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
       </list>
     </option>
@@ -1105,12 +1018,12 @@
       <workItem from="1456604860237" duration="6897000" />
       <workItem from="1456613241014" duration="45734000" />
       <workItem from="1456959793625" duration="77032000" />
-      <workItem from="1457185889976" duration="21384000" />
+      <workItem from="1457185889976" duration="26355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176274000" />
+    <option name="totallyTimeSpent" value="181245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="29" width="960" height="1051" extended-state="4" />
@@ -1118,15 +1031,15 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253012" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243243" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2918919" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27675676" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.104575165" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.033769064" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32540542" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1715,29 +1628,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1748,24 +1643,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/submission.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36842105">
-          <caret line="90004" column="0" selection-start-line="90004" selection-start-column="0" selection-end-line="90005" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1780,10 +1657,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/submission.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.250774">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.055727553">
+          <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="92" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5119617">
-          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.22620904">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

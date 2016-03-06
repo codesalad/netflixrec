@@ -24,8 +24,8 @@ public class LFMDriver {
 
         long startTime = System.currentTimeMillis();
         // Predict ratings.
+//        RatingList predictions = LFM.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), Data.getInstance().getRatingList(), Data.getInstance().getPredictionList());
         RatingList predictions = LFM.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
-
         /* testing data
 
         UserList testUsers = new UserList();
