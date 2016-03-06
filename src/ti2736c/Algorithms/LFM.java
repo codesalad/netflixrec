@@ -101,9 +101,11 @@ public class LFM {
                         double predTemp = movieFactors.getRowVector(i)
                                 .dotProduct(userFactors.getColumnVector(j));
 
-                        double eij = utility.getEntry(i, j) - (predTemp + mean
+                        double prediction = (predTemp + mean
                                 + (avgMovieRatings[i] - mean)
                                 + (avgUserRatings[j] - mean));
+                        
+                        double eij = utility.getEntry(i, j) - prediction;
 
                         for (int k = 0; k < FEATURE_LENGTH; k++) {
                             // Update factor matrices according to error
