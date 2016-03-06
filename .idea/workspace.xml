@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CFMatrices2.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/CFMatrices2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/CFDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/CFDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submission.csv" afterPath="$PROJECT_DIR$/submission.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/settings.config">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -87,8 +77,8 @@
       <file leaf-file-name="Combiner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25">
-              <caret line="46" column="66" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.5555556">
+              <caret line="56" column="93" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,7 +166,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1194" />
+    <option name="x" value="170" />
     <option name="y" value="29" />
     <option name="width" value="1717" />
     <option name="height" value="1051" />
@@ -1056,15 +1046,15 @@
       <workItem from="1456604860237" duration="6897000" />
       <workItem from="1456613241014" duration="45734000" />
       <workItem from="1456959793625" duration="77032000" />
-      <workItem from="1457185889976" duration="46917000" />
+      <workItem from="1457185889976" duration="49200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201807000" />
+    <option name="totallyTimeSpent" value="204090000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1194" y="29" width="1717" height="1051" extended-state="0" />
+    <frame x="170" y="29" width="1717" height="1051" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1683,10 +1673,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.config">
+    <entry file="file://$PROJECT_DIR$/submission.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.5277778">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1701,18 +1691,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/submission.csv">
+    <entry file="file://$PROJECT_DIR$/settings.config">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5277778">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25">
-          <caret line="46" column="66" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.5555556">
+          <caret line="56" column="93" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
