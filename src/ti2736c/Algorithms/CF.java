@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by codesalad on 4-3-16.
  */
 public class CF {
+
     public static ArrayList<Double> predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
         ArrayList<Double> results = new ArrayList<>();
 
@@ -73,8 +74,12 @@ public class CF {
                     double bxj = mean + (avgUserRatings[c] - mean)
                             + (avgMovieRatings[r] - mean);
 
-//                    double distance = pearson(utility, avgMovieRatings, avgUserRatings, q,r);
-                    double distance = cosine(utility, q,r);
+                    double distance = 0.0;
+                    if (Config.CF_SIMILARITY.equals("cosine"))
+                        distance = pearson(utility, avgMovieRatings, avgUserRatings, q,r);
+                    else if (Config.CF_SIMILARITY.equals("pearson"))
+                        distance = cosine(utility, q,r);
+
                     numerator += (utility[r][c] - bxj) * distance;
                     denominator += distance;
                 }

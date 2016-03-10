@@ -21,6 +21,10 @@ public class Config {
     public static double TRAINING_SET_SIZE;
     public static double TEST_SET_SIZE;
 
+    /* CF */
+    public static String[] SIMILARITIES = {"cosine", "pearson"};
+    public static String CF_SIMILARITY;
+
     /* LFM */
     public static int LF_EPOCHS;
     public static int LF_FEATURE_LENGTH;
@@ -57,6 +61,9 @@ public class Config {
                         case "randomize_sets": RANDOMIZE_SETS = parts[1].equals("true"); break;
                         case "training_set_size": TRAINING_SET_SIZE = Double.parseDouble(parts[1]); break;
                         case "test_set_size": TEST_SET_SIZE = Double.parseDouble(parts[1]); break;
+
+                        /* CF */
+                        case "cf_similarity": CF_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
 
                         /* LFM */
                         case "lf_epochs" : LF_EPOCHS = Integer.parseInt(parts[1]); break;

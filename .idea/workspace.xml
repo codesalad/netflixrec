@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,14 +33,14 @@
     <favorites_list name="Netflixrec" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.275">
+    <splitter split-orientation="horizontal" split-proportion="0.23">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="settings.config" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/settings.config">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3605547">
-                  <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+                <state vertical-scroll-proportion="0.5718608">
+                  <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -53,7 +50,7 @@
             <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Config.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+                  <caret line="65" column="110" selection-start-line="65" selection-start-column="110" selection-end-line="65" selection-end-column="110" />
                   <folding />
                 </state>
               </provider>
@@ -81,16 +78,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CF.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="LFM.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -111,19 +98,42 @@
             <entry file="file://$PROJECT_DIR$/settings.config">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+                  <caret line="21" column="13" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CFDriver.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="CFDriver.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7503852">
-                  <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CF.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.688351">
+                  <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="60" column="50" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#4886#4887#0" expanded="true" />
+                    <element signature="e#4918#4919#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -163,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Core/FeatureItem.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/User.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Core/Movie.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CollaborativeFiltering.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CF_u2u.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFUUDriver.java" />
@@ -172,17 +181,18 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Core/Matrix.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFMatricesDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/main.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CFMatrices2.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" />
-        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
-        <option value="$PROJECT_DIR$/settings.config" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Data.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
+        <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java" />
+        <option value="$PROJECT_DIR$/settings.config" />
       </list>
     </option>
   </component>
@@ -199,8 +209,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="960" />
     <option name="y" value="29" />
-    <option name="width" value="1920" />
+    <option name="width" value="960" />
     <option name="height" value="1051" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -1079,16 +1090,16 @@
       <workItem from="1456613241014" duration="45734000" />
       <workItem from="1456959793625" duration="77032000" />
       <workItem from="1457185889976" duration="49200000" />
-      <workItem from="1457641067938" duration="3031000" />
+      <workItem from="1457641067938" duration="6295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207121000" />
+    <option name="totallyTimeSpent" value="210385000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
-    <editor active="true" />
+    <frame x="960" y="29" width="960" height="1051" extended-state="4" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1097,10 +1108,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2681081" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25513515" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14802982" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1452,6 +1463,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <marker date="1456999811632" expanded="true" signature="170:309" placeholder="{...}" />
+            <marker date="1456999811632" expanded="false" signature="344:355" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="369:375" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="404:415" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="427:433" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="468:479" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="493:499" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="528:539" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="551:557" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="584:595" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="608:614" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="644:655" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="667:673" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="707:718" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="731:737" placeholder=" }" />
+            <marker date="1456999811632" expanded="true" signature="768:1061" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1482,6 +1511,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <marker date="1456999811632" expanded="true" signature="170:309" placeholder="{...}" />
+            <marker date="1456999811632" expanded="false" signature="344:355" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="369:375" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="404:415" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="427:433" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="468:479" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="493:499" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="528:539" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="551:557" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="584:595" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="608:614" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="644:655" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="667:673" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="707:718" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="731:737" placeholder=" }" />
+            <marker date="1456999811632" expanded="true" signature="768:1061" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1497,6 +1544,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <marker date="1456999811632" expanded="true" signature="170:309" placeholder="{...}" />
+            <marker date="1456999811632" expanded="false" signature="344:355" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="369:375" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="404:415" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="427:433" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="468:479" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="493:499" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="528:539" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="551:557" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="584:595" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="608:614" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="644:655" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="667:673" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="707:718" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="731:737" placeholder=" }" />
+            <marker date="1456999811632" expanded="true" signature="768:1061" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1577,6 +1642,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#600#601#0" expanded="false" />
+            <element signature="e#627#628#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1584,14 +1653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.30167598">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12166172">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1614,6 +1675,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4356688">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1456999811632" expanded="true" signature="170:309" placeholder="{...}" />
+            <marker date="1456999811632" expanded="false" signature="344:355" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="369:375" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="404:415" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="427:433" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="468:479" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="493:499" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="528:539" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="551:557" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="584:595" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="608:614" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="644:655" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="667:673" placeholder=" }" />
+            <marker date="1456999811632" expanded="false" signature="707:718" placeholder=" { " />
+            <marker date="1456999811632" expanded="false" signature="731:737" placeholder=" }" />
+            <marker date="1456999811632" expanded="true" signature="768:1061" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1851,16 +1930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6020067">
@@ -1877,11 +1946,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="50" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+          <folding>
+            <element signature="e#4886#4887#0" expanded="true" />
+            <element signature="e#4918#4919#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+          <caret line="65" column="110" selection-start-line="65" selection-start-column="110" selection-end-line="65" selection-end-column="110" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1895,29 +1995,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.config">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java">
+    <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/CF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7503852">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.688351">
+          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>

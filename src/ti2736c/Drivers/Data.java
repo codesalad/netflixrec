@@ -54,11 +54,15 @@ public class Data {
     public void calculateMean() {
         System.out.println("Calculating overall mean...");
 
-        mean = ratingList.get(0).getRating();
-        for (int i = 1; i < ratingList.size(); i++) {
-                mean = ((double) i / ((double) i + 1.0)) * mean
-                        + (1.0 / ((double) i + 1.0))
-                        * ratingList.get(i).getRating();
+        double ratings = 0.0;
+        int total = 0;
+
+        for (int i = 0; i < ratingList.size(); i++) {
+            if (ratingList.get(i).getRating() > 0.0) {
+                ratings += ratingList.get(i).getRating();
+                total++;
+            }
+            ratings /= total;
         }
 
     }
