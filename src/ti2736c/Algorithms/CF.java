@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by codesalad on 4-3-16.
  */
-public class CFMatrices2 {
+public class CF {
     public static ArrayList<Double> predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
         ArrayList<Double> results = new ArrayList<>();
 

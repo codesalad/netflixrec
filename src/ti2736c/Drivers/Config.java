@@ -13,14 +13,19 @@ public class Config {
 
     /* General Vars */
 
-    public static double TRAINING_SET_SIZE; // Fixed size for datasets. Used for training.
-    public static double TEST_SET_SIZE;
-    public static boolean ALLOW_WRITE;
+    public static boolean TRAINING_MODE;
     public static boolean ALLOW_STATUS_OUTPUT;
 
     public static boolean RANDOMIZE_SETS;
-    public static boolean NORMALIZE;
-    public static boolean BIAS;
+
+    public static double TRAINING_SET_SIZE;
+    public static double TEST_SET_SIZE;
+
+    /* LFM */
+    public static int LF_EPOCHS;
+    public static int LF_FEATURE_LENGTH;
+    public static double LF_LEARNING_RATE;
+    public static double LF_REGULARIZATION;
 
     /* Data locations */
     public static String moviesFile; // movies
@@ -29,16 +34,6 @@ public class Config {
     public static String predictionsFile; // predictions
     public static String outputFile; // output
 
-    /* Collaborative Filtering */
-    public static final String[] CF_methods = {"user-user", "item-item"};
-    public static String CF_method;
-    public static double CF_threshold;
-    public static double CF_user_deviation;
-
-    /* NEAREST NEIGHBOUR ALGORITHM */
-    public static int NN_k;
-    public static final String[] NN_distance_metrics = {"euclid", "cosine", "jaccard", "hamming"};
-    public static String NN_distance_metric; // euclid, angular, cosine, acos, hamming...
 
     private Config() {}
 
@@ -53,25 +48,33 @@ public class Config {
                 if (!line.startsWith("#") && !line.startsWith("[")) {
                     String[] parts = line.replace(" ", "").split("=");
                     switch (parts[0]) {
+
+                        /* General */
+                        case "training_mode": TRAINING_MODE = parts[1].equals("true"); break;
+                        case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
+
+                        /* Training */
+                        case "randomize_sets": RANDOMIZE_SETS = parts[1].equals("true"); break;
+                        case "training_set_size": TRAINING_SET_SIZE = Double.parseDouble(parts[1]); break;
+                        case "test_set_size": TEST_SET_SIZE = Double.parseDouble(parts[1]); break;
+
+                        /* LFM */
+                        case "lf_epochs" : LF_EPOCHS = Integer.parseInt(parts[1]); break;
+                        case "lf_feature_length" : LF_FEATURE_LENGTH = Integer.parseInt(parts[1]); break;
+                        case "lf_learning_rate" : LF_LEARNING_RATE = Double.parseDouble(parts[1]); break;
+                        case "lf_regularization" : LF_REGULARIZATION = Double.parseDouble(parts[1]); break;
+
+                        /* Files */
                         case "movies_file": moviesFile = parts[1]; break;
                         case "ratings_file": ratingsFile = parts[1]; break;
                         case "users_file": usersFile = parts[1]; break;
-                        case "randomize_sets": RANDOMIZE_SETS = parts[1].equals("true"); break;
-                        case "normalize": NORMALIZE = parts[1].equals("true"); break;
-                        case "bias": BIAS = parts[1].equals("true"); break;
-                        case "training_set_size": TRAINING_SET_SIZE = Double.parseDouble(parts[1]); break;
-                        case "test_set_size": TEST_SET_SIZE = Double.parseDouble(parts[1]); break;
                         case "predictions_file": predictionsFile = parts[1]; break;
                         case "output_file": outputFile = parts[1]; break;
-                        case "allow_write": ALLOW_WRITE = parts[1].equals("true"); break;
-                        case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
-                        case "NN_k": NN_k = Integer.parseInt(parts[1]); break;
-                        case "NN_distance_metric": NN_distance_metric = NN_distance_metrics[Integer.parseInt(parts[1])]; break;
-                        case "CF_threshold": CF_threshold = Double.parseDouble(parts[1]); break;
-                        case "CF_method": CF_method = CF_methods[Integer.parseInt(parts[1])]; break;
-                        case "CF_user_deviation": CF_user_deviation = Double.parseDouble(parts[1]); break;
                         default: break;
                     }
+
+                    /* Post: some things are deductive */
+                    RANDOMIZE_SETS = RANDOMIZE_SETS && TRAINING_MODE;
 
                     if (parts.length == 2)
                         log.append(parts[0]).append(" = ").append(parts[1]).append("\n");

@@ -6,6 +6,7 @@ import org.apache.commons.math3.linear.RealMatrix;
 import ti2736c.Core.MovieList;
 import ti2736c.Core.RatingList;
 import ti2736c.Core.UserList;
+import ti2736c.Drivers.Config;
 import ti2736c.Drivers.Data;
 
 import java.util.ArrayList;
@@ -16,16 +17,16 @@ import java.util.ArrayList;
 public class LFM {
 
     /* Max epochs to run */
-    private static int EPOCHS = 350;
+    private static int EPOCHS = Config.LF_EPOCHS;
 
     /* Length of feature matrices */
-    private static int FEATURE_LENGTH = 25;
+    private static int FEATURE_LENGTH = Config.LF_FEATURE_LENGTH;
 
     /* Learning rate */
-    private static double ALPHA = 0.0015;
+    private static double ALPHA = Config.LF_LEARNING_RATE;
 
     /* Regulate value */
-    private static double BETA = 0.06;
+    private static double BETA = Config.LF_REGULARIZATION;
 
     /* Value to stop at */
     private static double EPSILON = 0.0002;

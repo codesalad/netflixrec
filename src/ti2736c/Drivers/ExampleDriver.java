@@ -32,7 +32,7 @@ public class ExampleDriver {
         // Predict ratings.
         RatingList predictions = exampleAlgorithm.predictRatings(users, movies, trainingSet, testSet);
 
-        if (Config.ALLOW_WRITE)
+        if (!Config.TRAINING_MODE)
             predictions.writeResultsFile(Config.outputFile);
 
         // Verify the predictions.
