@@ -52,13 +52,13 @@ public class LFM {
 
         for (int m = 0; m < movies.size(); m++) {
             for (int f = 0; f < FEATURE_LENGTH; f++) {
-                movieFactors.setEntry(m, f, Math.random());
+                movieFactors.setEntry(m, f, 1 / FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH));
             }
         }
 
         for (int f = 0; f < FEATURE_LENGTH; f++) {
             for (int u = 0; u < users.size(); u++) {
-                userFactors.setEntry(f, u, Math.random());
+                userFactors.setEntry(f, u, 1 / FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH));
             }
         }
 
