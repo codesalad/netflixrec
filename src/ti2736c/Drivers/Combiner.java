@@ -6,7 +6,12 @@ import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.Rating;
 import ti2736c.Core.RatingList;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by codesalad on 6-3-16.
@@ -14,6 +19,7 @@ import java.util.ArrayList;
 public class Combiner {
     public static void main(String[] args) {
         /* Initialize configs */
+        System.out.println("CONFIG LOADED:\n-----------------\n");
         Config.getInstance().read();
 
         // Use known data to train.
@@ -48,19 +54,49 @@ public class Combiner {
             Rating toRate = testSet.get(i);
             double a = lfmresults.get(i);
             double b = cfresults.get(i);
-            toRate.setRating(0.7 * a + 0.3 * b);
+            double prediction = 0.8 * a + 0.2 * b;
+
+            if (prediction > 5.0)
+                prediction = 5.0;
+            else if (prediction < 1.0)
+                prediction = 1.0;
+
+            toRate.setRating(prediction);
         }
 
         for (int i = 0; i < 50; i++) {
             double a = lfmresults.get(i);
             double b = cfresults.get(i);
-            System.out.println("LFM: " + a + "\tCF: " + b + "\tprediction: " + (0.7 * a + 0.3 * b) + "\tactual: " + verificationSet.get(i).getRating());
+
+            double prediction = 0.8 * a + 0.2 * b;
+
+            if (prediction > 5.0)
+                prediction = 5.0;
+            else if (prediction < 1.0)
+                prediction = 1.0;
+
+            System.out.println("LFM: " + a + "\tCF: " + b + "\tprediction: " + prediction + "\tactual: " + verificationSet.get(i).getRating());
         }
 
-        RMSE.calcPrint(testSet, verificationSet);
+        String rmse = RMSE.calcString(testSet, verificationSet);
 
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
+
+        if (Config.ALLOW_LOG) {
+            try {
+                PrintWriter pw = new PrintWriter(new FileOutputStream(new File(Config.LOG_FILE), true));
+                pw.println(new Date());
+                pw.println(">Running combiner LFM & CF Item-Item...");
+                pw.println(Config.getInstance().toString());
+                pw.println(rmse);
+                pw.println("Duration: " + (endTime - startTime) / 1000 + "s");
+                pw.println("----------------------------------------------");
+                pw.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 }

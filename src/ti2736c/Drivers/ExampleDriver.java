@@ -36,6 +36,6 @@ public class ExampleDriver {
             predictions.writeResultsFile(Config.outputFile);
 
         // Verify the predictions.
-        RMSE.calcPrint(predictions, verificationSet);
+        System.out.println(RMSE.calcString(predictions, verificationSet));
     }
 }

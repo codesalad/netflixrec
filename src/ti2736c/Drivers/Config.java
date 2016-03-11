@@ -15,6 +15,8 @@ public class Config {
 
     public static boolean TRAINING_MODE;
     public static boolean ALLOW_STATUS_OUTPUT;
+    public static boolean ALLOW_LOG;
+    public static String LOG_FILE;
 
     public static boolean RANDOMIZE_SETS;
 
@@ -27,6 +29,7 @@ public class Config {
     public static double CF_KNN;
 
     /* LFM */
+    public static boolean LF_BIAS;
     public static int LF_EPOCHS;
     public static int LF_FEATURE_LENGTH;
     public static double LF_LEARNING_RATE;
@@ -39,12 +42,12 @@ public class Config {
     public static String predictionsFile; // predictions
     public static String outputFile; // output
 
+    public static StringBuilder log;
 
     private Config() {}
 
     public static void read() {
-        StringBuilder log = new StringBuilder();
-        log.append("CONFIG LOADED:\n-----------------\n");
+        log = new StringBuilder();
         BufferedReader reader = null;
         String line;
         try {
@@ -57,6 +60,8 @@ public class Config {
                         /* General */
                         case "training_mode": TRAINING_MODE = parts[1].equals("true"); break;
                         case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
+                        case "allow_log": ALLOW_LOG = parts[1].equals("true"); break;
+                        case "log_file": LOG_FILE = parts[1]; break;
 
                         /* Training */
                         case "randomize_sets": RANDOMIZE_SETS = parts[1].equals("true"); break;
@@ -68,6 +73,7 @@ public class Config {
                         case "cf_knn": CF_KNN = Double.parseDouble(parts[1]);break;
 
                         /* LFM */
+                        case "lf_bias" : LF_BIAS = parts[1].equals("true"); break;
                         case "lf_epochs" : LF_EPOCHS = Integer.parseInt(parts[1]); break;
                         case "lf_feature_length" : LF_FEATURE_LENGTH = Integer.parseInt(parts[1]); break;
                         case "lf_learning_rate" : LF_LEARNING_RATE = Double.parseDouble(parts[1]); break;
@@ -101,6 +107,10 @@ public class Config {
                 }
             }
         }
+    }
+
+    public String toString() {
+        return log.toString();
     }
 
     public static synchronized Config getInstance() {

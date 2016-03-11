@@ -4,7 +4,12 @@ import ti2736c.Algorithms.LFM;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by codesalad on 6-3-16.
@@ -12,6 +17,7 @@ import java.util.ArrayList;
 public class LFMDriver {
     public static void main(String[] args) {
         /* Initialize configs */
+        System.out.println("CONFIG LOADED:\n-----------------\n");
         Config.getInstance().read();
 
         // Use known data to train.
@@ -48,12 +54,28 @@ public class LFMDriver {
             predictions.writeResultsFile(Config.outputFile);
 
         // Verify the predictions.
-        RMSE.calcPrint(predictions, verificationSet);
+        String rmse = RMSE.calcString(predictions, verificationSet);
+        System.out.println(rmse);
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
 
         for (int i = 0; i < 50; i++) {
             System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
+        }
+
+        if (Config.ALLOW_LOG) {
+            try {
+                PrintWriter pw = new PrintWriter(new FileOutputStream(new File(Config.LOG_FILE), true));
+                pw.println(new Date());
+                pw.println(">Running LFM...");
+                pw.println(Config.getInstance().toString());
+                pw.println(rmse);
+                pw.println("Duration: " + (endTime - startTime) / 1000 + "s");
+                pw.println("----------------------------------------------");
+                pw.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

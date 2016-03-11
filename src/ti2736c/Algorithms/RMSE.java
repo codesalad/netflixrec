@@ -23,12 +23,12 @@ public class RMSE {
         return Math.sqrt(sse);
     }
 
-    public static void calcPrint(RatingList predicted, RatingList actual) {
+    public static String calcString(RatingList predicted, RatingList actual) {
         StringBuilder builder = new StringBuilder();
-        builder.append("\n\nAlgorithm ran with \ntraining set of size: ").append(Data.getInstance().getTrainingSet().size())
+        builder.append("\nAlgorithm ran with \ntraining set of size: ").append(Data.getInstance().getTrainingSet().size())
                 .append(" (").append(Config.TRAINING_SET_SIZE * 100).append("%)")
                 .append("\ntest set of size: ").append(actual.size());
         builder.append("\nRMSE: ").append(calculate(predicted, actual)).append("\n");
-        System.out.println(builder);
+        return builder.toString();
     }
 }
