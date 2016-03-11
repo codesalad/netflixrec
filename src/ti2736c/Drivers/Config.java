@@ -24,6 +24,7 @@ public class Config {
     /* CF */
     public static String[] SIMILARITIES = {"cosine", "pearson"};
     public static String CF_SIMILARITY;
+    public static double CF_KNN;
 
     /* LFM */
     public static int LF_EPOCHS;
@@ -64,6 +65,7 @@ public class Config {
 
                         /* CF */
                         case "cf_similarity": CF_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
+                        case "cf_knn": CF_KNN = Double.parseDouble(parts[1]);break;
 
                         /* LFM */
                         case "lf_epochs" : LF_EPOCHS = Integer.parseInt(parts[1]); break;

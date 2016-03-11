@@ -106,17 +106,18 @@ public class LFM {
                         double predTemp = movieFactors.getRowVector(i)
                                 .dotProduct(userFactors.getColumnVector(j));
 
-                        double prediction = (predTemp + mean
-                                + (avgMovieRatings[i] - mean)
-                                + (avgUserRatings[j] - mean));
+//                        double prediction = (predTemp + mean
+//                                + (avgMovieRatings[i] - mean)
+//                                + (avgUserRatings[j] - mean));
 
 
-                        if(prediction > 5.0)
-                            prediction = 5.0;
-                        else if(prediction < 1.0)
-                            prediction = 1.0;
 
-                        double eij = utility.getEntry(i, j) - prediction;
+                        if(predTemp > 5.0)
+                            predTemp = 5.0;
+                        else if(predTemp < 1.0)
+                            predTemp = 1.0;
+
+                        double eij = utility.getEntry(i, j) - predTemp;
 
                         for (int k = 0; k < FEATURE_LENGTH; k++) {
                             // Update factor matrices according to error
@@ -154,7 +155,7 @@ public class LFM {
             double mBias = avgMovieRatings[r.getMovie().getIndex()-1] - mean;
 
 //            r.setRating(dot + mean + uBias + mBias);
-            result.add(dot+mean+uBias+mBias);
+            result.add(dot);
         });
 
         return result;

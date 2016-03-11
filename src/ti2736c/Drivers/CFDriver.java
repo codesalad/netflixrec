@@ -1,6 +1,7 @@
 package ti2736c.Drivers;
 
 import ti2736c.Algorithms.CF;
+import ti2736c.Algorithms.CFMod;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
@@ -31,7 +32,7 @@ public class CFDriver {
         RatingList predictions = null;
 
         if (Config.TRAINING_MODE) {
-            resRatings = CF.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+            resRatings = CFMod.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
             predictions = testSet;
         } else {
             resRatings = CF.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(),
@@ -52,8 +53,8 @@ public class CFDriver {
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
 
-//        for (int i = 0; i < predictions.size(); i++) {
-//            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
-//        }
+        for (int i = 0; i < 50; i++) {
+            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
+        }
     }
 }

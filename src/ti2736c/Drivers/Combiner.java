@@ -1,6 +1,6 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.CF;
+import ti2736c.Algorithms.CFMod;
 import ti2736c.Algorithms.LFM;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.Rating;
@@ -41,7 +41,7 @@ public class Combiner {
         System.out.print(" - done.\n");
 
         System.out.print(">Starting CF item-item algorithm... ");
-        ArrayList<Double> cfresults = CF.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+        ArrayList<Double> cfresults = CFMod.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
         System.out.print(" - done.\n");
 
         for (int i = 0; i < testSet.size(); i++) {
