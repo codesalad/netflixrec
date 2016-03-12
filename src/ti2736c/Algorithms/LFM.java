@@ -52,15 +52,18 @@ public class LFM {
         System.out.println("Creating user-factors list...");
         RealMatrix userFactors = new BlockRealMatrix(FEATURE_LENGTH, users.size());
 
+        double init = (double) 1/FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH);
+
+        System.out.println("init: " + init);
         for (int m = 0; m < movies.size(); m++) {
             for (int f = 0; f < FEATURE_LENGTH; f++) {
-                movieFactors.setEntry(m, f, 1 / FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH));
+                movieFactors.setEntry(m, f, (double) 1/FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH));
             }
         }
 
         for (int f = 0; f < FEATURE_LENGTH; f++) {
             for (int u = 0; u < users.size(); u++) {
-                userFactors.setEntry(f, u, 1 / FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH));
+                userFactors.setEntry(f, u, (double) 1/FEATURE_LENGTH + (Math.random() / FEATURE_LENGTH));
             }
         }
 

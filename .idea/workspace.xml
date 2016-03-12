@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a5cf1f7-95bb-4575-92d5-3dbcc282a790" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_logging_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_logging_1_2_javadoc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/CF.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/CF.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" afterPath="$PROJECT_DIR$/data/ti2736c/Algorithms/LFM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Combiner.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Combiner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Config.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/Data.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" afterPath="$PROJECT_DIR$/data/ti2736c/Drivers/LFMDriver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs.txt" afterPath="$PROJECT_DIR$/logs.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.config" afterPath="$PROJECT_DIR$/settings.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" afterPath="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Combiner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/ExampleDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" afterPath="$PROJECT_DIR$/src/ti2736c/Drivers/LFMDriver.java" />
     </list>
     <ignored path="Netflixrec.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,21 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.config" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.config" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/settings.config">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.76339287">
+              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LFM.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LFM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0892856">
-              <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,8 +122,8 @@
         <option value="$PROJECT_DIR$/src/ti2736c/Drivers/CFDriver.java" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/RMSE.java" />
         <option value="$PROJECT_DIR$/logs.txt" />
-        <option value="$PROJECT_DIR$/settings.config" />
         <option value="$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java" />
+        <option value="$PROJECT_DIR$/settings.config" />
       </list>
     </option>
   </component>
@@ -1033,16 +1021,16 @@
       <workItem from="1456613241014" duration="45734000" />
       <workItem from="1456959793625" duration="77032000" />
       <workItem from="1457185889976" duration="49200000" />
-      <workItem from="1457641067938" duration="40277000" />
+      <workItem from="1457641067938" duration="51745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244367000" />
+    <option name="totallyTimeSpent" value="255835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1051,7 +1039,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48540542" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48540542" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17784877" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -1960,7 +1948,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/logs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35714287">
+        <state vertical-scroll-proportion="-10.129464">
           <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
           <folding />
         </state>
@@ -1976,21 +1964,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ti2736c/Algorithms/LFM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0892856">
-          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76339287">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
