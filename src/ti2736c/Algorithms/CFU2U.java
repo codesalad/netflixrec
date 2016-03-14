@@ -5,12 +5,14 @@ import ti2736c.Drivers.Config;
 import ti2736c.Drivers.Data;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
- * Created by codesalad on 4-3-16.
+ * Created by codesalad on 14-3-16.
  */
-public class CF {
-
+public class CFU2U {
     public static ArrayList<Double> predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
         ArrayList<Double> results = new ArrayList<>();
 
@@ -22,6 +24,18 @@ public class CF {
 
         inputList.forEach(r -> {
             utility[r.getMovie().getIndex() - 1][r.getUser().getIndex()-1] = r.getRating();
+        });
+
+        //create utility matrix
+        System.out.println("Creating user matrix (row: user; col: user's features) ...");
+        // col: isMale, age, profession
+        double[][] userMatrix = new double[users.size()][3];
+
+        inputList.forEach(r -> {
+            User u = r.getUser();
+            userMatrix[u.getIndex()-1][0] = (u.isMale()) ? 1 : 0; // ismale
+            userMatrix[u.getIndex()-1][1] = u.getAge();
+            userMatrix[u.getIndex()-1][2] = u.getProfession();
         });
 
         // create movie mean matrix
@@ -61,28 +75,49 @@ public class CF {
             int q = toRate.getMovie().getIndex() - 1; // query movie
             int c = toRate.getUser().getIndex() - 1; // user
 
+            LinkedList<Integer> userIndices = new LinkedList<>();
+            for (int cc = 0; cc < utility[0].length; cc++) {
+                if (utility[q][cc] > 0.0) {
+                    userIndices.add(cc);
+                }
+            }
+
+            TreeMap<Double, Integer> neighbours = new TreeMap<>();
+            for (int u = 0; u < userIndices.size(); u++) {
+                double distance = 0.0;
+                if (Config.CF_SIMILARITY.equals("pearson"))
+                    distance = pearson(userMatrix, avgMovieRatings, avgUserRatings, c, userIndices.get(u));
+                else if (Config.CF_SIMILARITY.equals("cosine"))
+                    distance = cosine(userMatrix, c, userIndices.get(u));
+
+                neighbours.put(distance, userIndices.get(u));
+            }
+
+
             // baseline estimate rxi: overall mean + bias user + bias movie
             // bias user = avg user x - overall mean
             double bxi = mean + (avgUserRatings[c] - mean)
                     + (avgMovieRatings[q] - mean);
 
+
             double numerator = 0.0;
             double denominator = 0.0;
 
-            for (int r = 0; r < utility.length; r++) { // loop through all rows (movies)
-                if (utility[r][c] > 0.0) {
-                    double bxj = mean + (avgUserRatings[c] - mean)
-                            + (avgMovieRatings[r] - mean);
+            int k = 0;
 
-                    double distance = 0.0;
-                    if (Config.CF_SIMILARITY.equals("pearson"))
-                        distance = pearson(utility, avgMovieRatings, avgUserRatings, q,r);
-                    else if (Config.CF_SIMILARITY.equals("cosine"))
-                        distance = cosine(utility, q,r);
+            for (Map.Entry<Double, Integer> entry : neighbours.entrySet()) {
+                double dist = entry.getKey();
+                int index = entry.getValue();
 
-                    numerator += (utility[r][c] - bxj) * distance;
-                    denominator += distance;
-                }
+                double bxj = mean + (avgUserRatings[index] - mean)
+                        + (avgMovieRatings[q] - mean);
+
+                numerator += (utility[q][index] - bxj) * dist;
+                denominator += dist;
+
+                if (k >= Config.CF_THRESHOLD && k >= (Config.CF_KNN * neighbours.size())) break;
+
+                k++;
             }
 
             if (numerator == 0 || denominator == 0
@@ -96,17 +131,9 @@ public class CF {
 
             if (Config.ALLOW_STATUS_OUTPUT)
                 System.out.printf("\rPredicting: %.1f%%", ((float) (i+1) / outputList.size()) * 100);
-
         }
+
         return results;
-    }
-
-    public static double euclid(double[][] utility, int query, int other) {
-        double distance = 0.0;
-        for (int c = 0; c < utility[0].length; c++) {
-            distance += Math.pow(utility[query][c] - utility[other][c], 2);
-        }
-        return distance;
     }
 
     public static double cosine(double[][] utility, int query, int other) {

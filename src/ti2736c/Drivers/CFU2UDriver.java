@@ -1,9 +1,7 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.CFMod;
-import ti2736c.Algorithms.LFM;
+import ti2736c.Algorithms.CFU2U;
 import ti2736c.Algorithms.RMSE;
-import ti2736c.Core.Rating;
 import ti2736c.Core.RatingList;
 
 import java.io.File;
@@ -14,9 +12,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by codesalad on 6-3-16.
+ * Created by codesalad on 3-3-16.
  */
-public class Combiner {
+public class CFU2UDriver {
     public static void main(String[] args) {
         /* Initialize configs */
         System.out.println("CONFIG LOADED:\n-----------------\n");
@@ -34,53 +32,43 @@ public class Combiner {
 
         long startTime = System.currentTimeMillis();
 
-        System.out.print(">Starting Latent Factor Model algorithm... ");
-        ArrayList<Double> lfmresults = LFM.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
-        System.out.print(" - done.\n");
+        // Predict ratings.
+        ArrayList<Double> resRatings = null;
+        RatingList predictions = null;
 
-        System.out.print(">Starting CF item-item algorithm... ");
-        ArrayList<Double> cfresults = CFMod.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
-        System.out.print(" - done.\n");
-
-        for (int i = 0; i < testSet.size(); i++) {
-            Rating toRate = testSet.get(i);
-            double a = lfmresults.get(i);
-            double b = cfresults.get(i);
-            double prediction = 0.8 * a + 0.2 * b;
-
-            if (prediction > 5.0)
-                prediction = 5.0;
-            else if (prediction < 1.0)
-                prediction = 1.0;
-
-            toRate.setRating(prediction);
+        if (Config.TRAINING_MODE) {
+            resRatings = CFU2U.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+            predictions = testSet;
+        } else {
+            resRatings = CFU2U.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(),
+                    Data.getInstance().getRatingList(), Data.getInstance().getPredictionList());
+            predictions = Data.getInstance().getPredictionList();
         }
 
-        for (int i = 0; i < 50; i++) {
-            double a = lfmresults.get(i);
-            double b = cfresults.get(i);
-
-            double prediction = 0.8 * a + 0.2 * b;
-
-            if (prediction > 5.0)
-                prediction = 5.0;
-            else if (prediction < 1.0)
-                prediction = 1.0;
-
-            System.out.println("LFM: " + a + "\tCF: " + b + "\tprediction: " + prediction + "\tactual: " + verificationSet.get(i).getRating());
+        // Converting back
+        for (int i = 0; i < predictions.size(); i++) {
+            predictions.get(i).setRating(resRatings.get(i));
         }
 
-        String rmse = RMSE.calcString(testSet, verificationSet);
+        if (!Config.TRAINING_MODE)
+            predictions.writeResultsFile(Config.outputFile);
+
+        // Verify the predictions.
+        String rmse = RMSE.calcString(predictions, verificationSet);
         System.out.println(rmse);
 
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
 
+        for (int i = 0; i < 50; i++) {
+            System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
+        }
+
         if (Config.ALLOW_LOG) {
             try {
                 PrintWriter pw = new PrintWriter(new FileOutputStream(new File(Config.LOG_FILE), true));
                 pw.println(new Date());
-                pw.println(">Running combiner LFM & CF Item-Item...");
+                pw.println(">Running CF user-user...");
                 pw.println(Config.getInstance().toString());
                 pw.println(rmse);
                 pw.println("Duration: " + (endTime - startTime) / 1000 + "s");
@@ -90,6 +78,5 @@ public class Combiner {
                 e.printStackTrace();
             }
         }
-
     }
 }

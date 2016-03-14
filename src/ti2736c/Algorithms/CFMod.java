@@ -71,9 +71,9 @@ public class CFMod {
             for (int r = 0; r < utility.length; r++) {
                 if (utility[r][c] > 0.0 && r != q) {
                     double distance = 0.0;
-                    if (Config.CF_SIMILARITY.equals("cosine"))
+                    if (Config.CF_SIMILARITY.equals("pearson"))
                         distance = pearson(utility, avgMovieRatings, avgUserRatings, q,r);
-                    else if (Config.CF_SIMILARITY.equals("pearson"))
+                    else if (Config.CF_SIMILARITY.equals("cosine"))
                         distance = cosine(utility, q,r);
 
                     neighbours.put(distance, r);
@@ -99,10 +99,12 @@ public class CFMod {
                 numerator += (utility[index][c] - bxj) * dist;
                 denominator += dist;
 
-                if (k > (Config.CF_KNN * neighbours.size())) break;
+                if (k >= Config.CF_THRESHOLD && k >= (Config.CF_KNN * neighbours.size())) break;
 
                 k++;
             }
+
+//            System.out.println("size: " + k);
 
             if (numerator == 0 || denominator == 0
                     || Double.isNaN(numerator) || Double.isNaN(denominator)) {
