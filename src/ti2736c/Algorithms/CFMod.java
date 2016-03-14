@@ -99,7 +99,7 @@ public class CFMod {
                 numerator += (utility[index][c] - bxj) * dist;
                 denominator += dist;
 
-                if (k >= Config.CF_THRESHOLD && k >= (Config.CF_KNN * neighbours.size())) break;
+                if (k >= Config.CF_II_THRESHOLD && k >= (Config.CF_II_KNN * neighbours.size())) break;
 
                 k++;
             }

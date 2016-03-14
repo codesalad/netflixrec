@@ -29,13 +29,14 @@ public class CFU2U {
         //create utility matrix
         System.out.println("Creating user matrix (row: user; col: user's features) ...");
         // col: isMale, age, profession
-        double[][] userMatrix = new double[users.size()][3];
+        double[][] userMatrix = new double[users.size()][4];
 
         inputList.forEach(r -> {
             User u = r.getUser();
             userMatrix[u.getIndex()-1][0] = (u.isMale()) ? 1 : 0; // ismale
             userMatrix[u.getIndex()-1][1] = u.getAge();
             userMatrix[u.getIndex()-1][2] = u.getProfession();
+            userMatrix[u.getIndex()-1][3] = r.getRating();
         });
 
         // create movie mean matrix
@@ -93,7 +94,6 @@ public class CFU2U {
                 neighbours.put(distance, userIndices.get(u));
             }
 
-
             // baseline estimate rxi: overall mean + bias user + bias movie
             // bias user = avg user x - overall mean
             double bxi = mean + (avgUserRatings[c] - mean)
@@ -115,10 +115,10 @@ public class CFU2U {
                 numerator += (utility[q][index] - bxj) * dist;
                 denominator += dist;
 
-                if (k >= Config.CF_THRESHOLD && k >= (Config.CF_KNN * neighbours.size())) break;
-
+                if (k >= Config.CF_UU_THRESHOLD && k >= (Config.CF_UU_KNN * neighbours.size())) break;
                 k++;
             }
+
 
             if (numerator == 0 || denominator == 0
                     || Double.isNaN(numerator) || Double.isNaN(denominator)) {

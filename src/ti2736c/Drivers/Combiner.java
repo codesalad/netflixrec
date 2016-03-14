@@ -1,6 +1,7 @@
 package ti2736c.Drivers;
 
 import ti2736c.Algorithms.CFMod;
+import ti2736c.Algorithms.CFU2U;
 import ti2736c.Algorithms.LFM;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.Rating;
@@ -39,14 +40,19 @@ public class Combiner {
         System.out.print(" - done.\n");
 
         System.out.print(">Starting CF item-item algorithm... ");
-        ArrayList<Double> cfresults = CFMod.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+        ArrayList<Double> cfII = CFMod.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+        System.out.print(" - done.\n");
+
+        System.out.print(">Starting CF user-user algorithm... ");
+        ArrayList<Double> cfUU = CFU2U.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
         System.out.print(" - done.\n");
 
         for (int i = 0; i < testSet.size(); i++) {
             Rating toRate = testSet.get(i);
             double a = lfmresults.get(i);
-            double b = cfresults.get(i);
-            double prediction = 0.8 * a + 0.2 * b;
+            double b = cfII.get(i);
+            double c= cfUU.get(i);
+            double prediction = 0.8 * a + 0.1 * b + 0.1 * c;
 
             if (prediction > 5.0)
                 prediction = 5.0;
@@ -58,16 +64,16 @@ public class Combiner {
 
         for (int i = 0; i < 50; i++) {
             double a = lfmresults.get(i);
-            double b = cfresults.get(i);
-
-            double prediction = 0.8 * a + 0.2 * b;
+            double b = cfII.get(i);
+            double c= cfUU.get(i);
+            double prediction = 0.8 * a + 0.1 * b + 0.1 * c;
 
             if (prediction > 5.0)
                 prediction = 5.0;
             else if (prediction < 1.0)
                 prediction = 1.0;
 
-            System.out.println("LFM: " + a + "\tCF: " + b + "\tprediction: " + prediction + "\tactual: " + verificationSet.get(i).getRating());
+            System.out.println("LFM: " + a + "\tII: " + b + "\tUU:" + c + "\tprediction: " + prediction + "\tactual: " + verificationSet.get(i).getRating());
         }
 
         String rmse = RMSE.calcString(testSet, verificationSet);

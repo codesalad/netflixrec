@@ -26,8 +26,12 @@ public class Config {
     /* CF */
     public static String[] SIMILARITIES = {"cosine", "pearson"};
     public static String CF_SIMILARITY;
-    public static double CF_KNN;
-    public static int CF_THRESHOLD;
+
+    public static double CF_II_KNN;
+    public static int CF_II_THRESHOLD;
+
+    public static double CF_UU_KNN;
+    public static int CF_UU_THRESHOLD;
 
     /* LFM */
     public static boolean LF_BIAS;
@@ -71,8 +75,10 @@ public class Config {
 
                         /* CF */
                         case "cf_similarity": CF_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
-                        case "cf_knn": CF_KNN = Double.parseDouble(parts[1]);break;
-                        case "cf_threshold": CF_THRESHOLD = Integer.parseInt(parts[1]); break;
+                        case "cf_ii_knn": CF_II_KNN = Double.parseDouble(parts[1]);break;
+                        case "cf_ii_threshold": CF_II_THRESHOLD = Integer.parseInt(parts[1]); break;
+                        case "cf_uu_knn": CF_UU_KNN = Double.parseDouble(parts[1]);break;
+                        case "cf_uu_threshold": CF_UU_THRESHOLD = Integer.parseInt(parts[1]); break;
 
                         /* LFM */
                         case "lf_bias" : LF_BIAS = parts[1].equals("true"); break;
