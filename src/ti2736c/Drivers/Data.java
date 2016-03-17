@@ -62,9 +62,9 @@ public class Data {
                 ratings += ratingList.get(i).getRating();
                 total++;
             }
-            ratings /= total;
         }
 
+        this.mean = ratings / total;
     }
 
     /**

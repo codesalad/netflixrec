@@ -27,17 +27,16 @@ public class CFU2U {
         });
 
         //create utility matrix
-        System.out.println("Creating user matrix (row: user; col: user's features) ...");
-        // col: isMale, age, profession
-        double[][] userMatrix = new double[users.size()][4];
-
-        inputList.forEach(r -> {
-            User u = r.getUser();
-            userMatrix[u.getIndex()-1][0] = (u.isMale()) ? 1 : 0; // ismale
-            userMatrix[u.getIndex()-1][1] = u.getAge();
-            userMatrix[u.getIndex()-1][2] = u.getProfession();
-            userMatrix[u.getIndex()-1][3] = r.getRating();
-        });
+//        System.out.println("Creating user matrix (row: user; col: user's features) ...");
+//        // col: isMale, age, profession
+//        double[][] userMatrix = new double[users.size()][4];
+//
+//        inputList.forEach(r -> {
+//            User u = r.getUser();
+//            userMatrix[u.getIndex()-1][0] = (u.isMale()) ? 1 : 0; // ismale
+//            userMatrix[u.getIndex()-1][1] = u.getAge();
+//            userMatrix[u.getIndex()-1][2] = u.getProfession();
+//        });
 
         // create movie mean matrix
         System.out.println("Creating movie mean matrix (row: movie) ...");
@@ -76,20 +75,20 @@ public class CFU2U {
             int q = toRate.getMovie().getIndex() - 1; // query movie
             int c = toRate.getUser().getIndex() - 1; // user
 
+            // Look for users who have rated the same movie
             LinkedList<Integer> userIndices = new LinkedList<>();
             for (int cc = 0; cc < utility[0].length; cc++) {
-                if (utility[q][cc] > 0.0) {
+                if (utility[q][cc] > 0.0)
                     userIndices.add(cc);
-                }
             }
 
             TreeMap<Double, Integer> neighbours = new TreeMap<>();
             for (int u = 0; u < userIndices.size(); u++) {
                 double distance = 0.0;
-                if (Config.CF_SIMILARITY.equals("pearson"))
-                    distance = pearson(userMatrix, avgMovieRatings, avgUserRatings, c, userIndices.get(u));
-                else if (Config.CF_SIMILARITY.equals("cosine"))
-                    distance = cosine(userMatrix, c, userIndices.get(u));
+                if (Config.CF_UU_SIMILARITY.equals("pearson"))
+                    distance = pearson(utility, avgMovieRatings, avgUserRatings, c, userIndices.get(u));
+                else if (Config.CF_UU_SIMILARITY.equals("cosine"))
+                    distance = cosine(utility, c, userIndices.get(u));
 
                 neighbours.put(distance, userIndices.get(u));
             }
@@ -99,6 +98,7 @@ public class CFU2U {
             double bxi = mean + (avgUserRatings[c] - mean)
                     + (avgMovieRatings[q] - mean);
 
+//            System.out.println("mean: " + mean + " \t " + (avgUserRatings[c] - mean) + "\t" + (avgMovieRatings[q] - mean));
 
             double numerator = 0.0;
             double denominator = 0.0;
@@ -112,20 +112,18 @@ public class CFU2U {
                 double bxj = mean + (avgUserRatings[index] - mean)
                         + (avgMovieRatings[q] - mean);
 
-                numerator += (utility[q][index] - bxj) * dist;
+                numerator += (utility[q][index] - bxi) * dist;
                 denominator += dist;
 
                 if (k >= Config.CF_UU_THRESHOLD && k >= (Config.CF_UU_KNN * neighbours.size())) break;
                 k++;
             }
 
-
             if (numerator == 0 || denominator == 0
                     || Double.isNaN(numerator) || Double.isNaN(denominator)) {
 //                toRate.setRating(bxi);
                 results.add(bxi);
             } else {
-//                toRate.setRating(bxi + (numerator/denominator));
                 results.add(bxi + (numerator/denominator));
             }
 
@@ -136,18 +134,20 @@ public class CFU2U {
         return results;
     }
 
-    public static double cosine(double[][] utility, int query, int other) {
+    public static double cosine(double[][] utility, int queryUser, int otherUser) {
         double dot = 0.0;
         double normA = 0.0;
         double normB = 0.0;
 
-        for (int c = 0; c < utility[0].length ; c++) {
-            dot += utility[query][c] * utility[other][c];
-            normA += Math.pow(utility[query][c], 2);
-            normB += Math.pow(utility[other][c], 2);
+        for (int r = 0; r < utility.length ; r++) {
+            if (utility[r][queryUser] > 0.0 && utility[r][otherUser] > 0.0) {
+                dot += utility[r][queryUser] * utility[r][otherUser];
+                normA += Math.pow(utility[r][queryUser], 2);
+                normB += Math.pow(utility[r][otherUser], 2);
+            }
         }
-        if (normA == 0) normA = 1;
-        if (normB == 0) normB = 1;
+        if (normA == 0 || normB == 0) return 0;
+//        if (normB == 0) normB = 1;
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));
     }
 

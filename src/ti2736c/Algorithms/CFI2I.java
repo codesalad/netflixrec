@@ -1,15 +1,20 @@
 package ti2736c.Algorithms;
 
-import ti2736c.Core.*;
+import ti2736c.Core.MovieList;
+import ti2736c.Core.Rating;
+import ti2736c.Core.RatingList;
+import ti2736c.Core.UserList;
 import ti2736c.Drivers.Config;
 import ti2736c.Drivers.Data;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by codesalad on 4-3-16.
  */
-public class CF {
+public class CFI2I {
 
     public static ArrayList<Double> predictRatings(UserList users, MovieList movies, RatingList inputList, RatingList outputList) {
         ArrayList<Double> results = new ArrayList<>();
@@ -61,6 +66,22 @@ public class CF {
             int q = toRate.getMovie().getIndex() - 1; // query movie
             int c = toRate.getUser().getIndex() - 1; // user
 
+            TreeMap<Double, Integer> neighbours = new TreeMap<>();
+
+            for (int r = 0; r < utility.length; r++) {
+                if (utility[r][c] > 0.0 && r != q) {
+                    double distance = 0.0;
+                    if (Config.CF_II_SIMILARITY.equals("pearson"))
+                        distance = pearson(utility, avgUserRatings, q, r);
+                    else if (Config.CF_II_SIMILARITY.equals("cosine"))
+                        distance = cosine(utility, q,r);
+                    else if (Config.CF_II_SIMILARITY.equals("euclid"))
+                        distance = euclid(utility, q, r);
+
+                    neighbours.put(distance, r);
+                }
+            }
+
             // baseline estimate rxi: overall mean + bias user + bias movie
             // bias user = avg user x - overall mean
             double bxi = mean + (avgUserRatings[c] - mean)
@@ -69,21 +90,23 @@ public class CF {
             double numerator = 0.0;
             double denominator = 0.0;
 
-            for (int r = 0; r < utility.length; r++) { // loop through all rows (movies)
-                if (utility[r][c] > 0.0) {
-                    double bxj = mean + (avgUserRatings[c] - mean)
-                            + (avgMovieRatings[r] - mean);
+            int k = 0;
 
-                    double distance = 0.0;
-                    if (Config.CF_SIMILARITY.equals("pearson"))
-                        distance = pearson(utility, avgMovieRatings, avgUserRatings, q,r);
-                    else if (Config.CF_SIMILARITY.equals("cosine"))
-                        distance = cosine(utility, q,r);
+            for (Map.Entry<Double, Integer> entry : neighbours.entrySet()) {
+                double dist = entry.getKey();
+                int index = entry.getValue();
+                double bxj = mean + (avgUserRatings[c] - mean)
+                        + (avgMovieRatings[index] - mean);
 
-                    numerator += (utility[r][c] - bxj) * distance;
-                    denominator += distance;
-                }
+                numerator += (utility[index][c] - bxj) * dist;
+                denominator += dist;
+
+                if (k >= Config.CF_II_THRESHOLD && k >= (Config.CF_II_KNN * neighbours.size())) break;
+
+                k++;
             }
+
+//            System.out.println("size: " + k);
 
             if (numerator == 0 || denominator == 0
                     || Double.isNaN(numerator) || Double.isNaN(denominator)) {
@@ -124,17 +147,18 @@ public class CF {
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));
     }
 
-    public static double pearson(double[][] utility, double[] meanMovies, double[] meanUsers, int query, int other) {
+    public static double pearson(double[][] utility, double[] meanUsers, int queryMovie, int otherMovie) {
         double dot = 0.0;
         double normA = 0.0;
         double normB = 0.0;
 
         for (int c = 0; c < utility[0].length ; c++) {
-            dot += (utility[query][c] - meanMovies[query])
-                    * (utility[other][c] - meanMovies[other]);
-            normA += Math.pow((utility[query][c] - meanMovies[query]), 2);
-            normB += Math.pow((utility[other][c] - meanMovies[other]), 2);
+            dot += (utility[queryMovie][c] - meanUsers[c])
+                    * (utility[otherMovie][c] - meanUsers[c]);
+            normA += Math.pow((utility[queryMovie][c] - meanUsers[c]), 2);
+            normB += Math.pow((utility[otherMovie][c] - meanUsers[c]), 2);
         }
+
         if (normA == 0) normA = 1;
         if (normB == 0) normB = 1;
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));

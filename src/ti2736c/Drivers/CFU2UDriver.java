@@ -60,7 +60,7 @@ public class CFU2UDriver {
         long endTime = System.currentTimeMillis();
         System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.println("id: " + predictions.get(i).getMovie().getIndex() + "\t actual: " + verificationSet.get(i).getRating() + " \t predicted: " + predictions.get(i).getRating());
         }
 

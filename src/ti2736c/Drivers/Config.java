@@ -24,12 +24,13 @@ public class Config {
     public static double TEST_SET_SIZE;
 
     /* CF */
-    public static String[] SIMILARITIES = {"cosine", "pearson"};
-    public static String CF_SIMILARITY;
+    public static String[] SIMILARITIES = {"euclid", "cosine", "pearson"};
 
+    public static String CF_II_SIMILARITY;
     public static double CF_II_KNN;
     public static int CF_II_THRESHOLD;
 
+    public static String CF_UU_SIMILARITY;
     public static double CF_UU_KNN;
     public static int CF_UU_THRESHOLD;
 
@@ -74,9 +75,10 @@ public class Config {
                         case "test_set_size": TEST_SET_SIZE = Double.parseDouble(parts[1]); break;
 
                         /* CF */
-                        case "cf_similarity": CF_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
+                        case "cf_ii_similarity": CF_II_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
                         case "cf_ii_knn": CF_II_KNN = Double.parseDouble(parts[1]);break;
                         case "cf_ii_threshold": CF_II_THRESHOLD = Integer.parseInt(parts[1]); break;
+                        case "cf_uu_similarity": CF_UU_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
                         case "cf_uu_knn": CF_UU_KNN = Double.parseDouble(parts[1]);break;
                         case "cf_uu_threshold": CF_UU_THRESHOLD = Integer.parseInt(parts[1]); break;
 
