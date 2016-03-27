@@ -36,6 +36,7 @@ public class LFM {
         ArrayList<Double> result = new ArrayList<>();
 
         double mean = Data.getInstance().getMean();
+        System.out.println(mean);
 
 
         System.out.println("Creating utility matrix...");
@@ -111,7 +112,7 @@ public class LFM {
             System.out.printf("\rBeginning epoch: %d/%d", (e+1), EPOCHS);
             for (int i = 0; i < movies.size(); i++) { // rows are movies
                 for (int j = 0; j < users.size(); j++) { // columns are users
-                    if (utility.getEntry(i, j) > 0.0) {
+                    if (utility.getEntry(i, j) > 0.0) { // check if rated.
                         // Calculate squared error:
                         double predTemp = movieFactors.getRowVector(i)
                                 .dotProduct(userFactors.getColumnVector(j));

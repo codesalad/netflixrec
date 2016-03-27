@@ -1,6 +1,7 @@
 package ti2736c.Drivers;
 
 import ti2736c.Algorithms.CFI2I;
+import ti2736c.Algorithms.CFU2U;
 import ti2736c.Algorithms.LFM;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.Rating;

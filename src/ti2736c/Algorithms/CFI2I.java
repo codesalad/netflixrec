@@ -69,16 +69,28 @@ public class CFI2I {
             TreeMap<Double, Integer> neighbours = new TreeMap<>();
 
             for (int r = 0; r < utility.length; r++) {
-                if (utility[r][c] > 0.0 && r != q) {
-                    double distance = 0.0;
-                    if (Config.CF_II_SIMILARITY.equals("pearson"))
-                        distance = pearson(utility, avgUserRatings, q, r);
-                    else if (Config.CF_II_SIMILARITY.equals("cosine"))
-                        distance = cosine(utility, q,r);
-                    else if (Config.CF_II_SIMILARITY.equals("euclid"))
-                        distance = euclid(utility, q, r);
+                if (utility[r][c] > 0.0 && r != q) { // if user has rated this movie
 
-                    neighbours.put(distance, r);
+//                    System.out.println(movies.get(q).getGenres()
+//                            +"\t" + movies.get(r).getGenres() + "\t" +
+//                            movies.get(q).genreOverlap(movies.get(r)));
+
+                    double similarity = 0.0;
+                    if (Config.CF_II_SIMILARITY.equals("pearson"))
+                        similarity = pearson(utility, avgUserRatings, q, r);
+                    else if (Config.CF_II_SIMILARITY.equals("cosine"))
+                        similarity = cosine(utility, q, r);
+                    else if (Config.CF_II_SIMILARITY.equals("euclid"))
+                        similarity = euclid(utility, q, r);
+
+                    double distance = 1 - similarity;
+
+                    if (Config.USE_GENRES) {
+                        double sim = movies.get(q).genreOverlap(movies.get(r));
+                        if (sim >= Config.CF_II_GENRE_SIM) neighbours.put(distance, r);
+                    } else {
+                        neighbours.put(distance, r);
+                    }
                 }
             }
 
@@ -114,7 +126,9 @@ public class CFI2I {
                 results.add(bxi);
             } else {
 //                toRate.setRating(bxi + (numerator/denominator));
-                results.add(bxi + (numerator/denominator));
+                double prediction = bxi + (numerator/denominator);
+                prediction = Math.min(Math.max(prediction, 1.0), 5.0);
+                results.add(prediction);
             }
 
             if (Config.ALLOW_STATUS_OUTPUT)
@@ -142,9 +156,8 @@ public class CFI2I {
             normA += Math.pow(utility[query][c], 2);
             normB += Math.pow(utility[other][c], 2);
         }
-        if (normA == 0) normA = 1;
-        if (normB == 0) normB = 1;
-        return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+        double res = dot / (Math.sqrt(normA) * Math.sqrt(normB));
+        return (Double.isNaN(res)) ? 0.0 : res;
     }
 
     public static double pearson(double[][] utility, double[] meanUsers, int queryMovie, int otherMovie) {
@@ -159,8 +172,7 @@ public class CFI2I {
             normB += Math.pow((utility[otherMovie][c] - meanUsers[c]), 2);
         }
 
-        if (normA == 0) normA = 1;
-        if (normB == 0) normB = 1;
-        return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+        double res = dot / (Math.sqrt(normA) * Math.sqrt(normB));
+        return (Double.isNaN(res)) ? 0.0 : res;
     }
 }

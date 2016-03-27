@@ -1,35 +1,35 @@
 package ti2736c.Core;
 
 
+import java.util.HashSet;
+import java.util.Set;
 
 public class Movie {
     
     int index, year;
-    double bias, mean;
     String title;
+    Set<String> genres;
     
 	public Movie(int _index, int _year, String _title) {
         this.index = _index;
         this.year  = _year;
         this.title = _title;
-        this.bias = 0;
-        this.mean = 0;
+        this.genres = new HashSet<>();
     }
 
-    public void setBias(double b) {
-        this.bias = b;
+    public double genreOverlap(Movie other) {
+        HashSet<String> diff = new HashSet<>(getGenres());
+        diff.retainAll(other.getGenres());
+
+        return (double) diff.size() / (getGenres().size() + other.getGenres().size() - diff.size());
     }
 
-    public double getBias() {
-        return bias;
+    public Set<String> getGenres() {
+        return genres;
     }
 
-    public void setMean(double m) {
-        this.mean = m;
-    }
-
-    public double getMean() {
-        return mean;
+    public void addGenre(String genre) {
+        genres.add(genre);
     }
 
     public int getIndex() {
@@ -49,7 +49,8 @@ public class Movie {
         result.append("[MOVIE\t index:")
                 .append(getIndex()).append(", year: ")
                 .append(getYear()).append(", title: ")
-                .append(getTitle()).append("]");
+                .append(getTitle()).append(", genres: ")
+                .append(getGenres()).append("]");
         return result.toString();
     }
 }

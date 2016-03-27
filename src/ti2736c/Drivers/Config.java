@@ -14,6 +14,7 @@ public class Config {
     /* General Vars */
 
     public static boolean TRAINING_MODE;
+    public static boolean USE_GENRES;
     public static boolean ALLOW_STATUS_OUTPUT;
     public static boolean ALLOW_LOG;
     public static String LOG_FILE;
@@ -29,6 +30,7 @@ public class Config {
     public static String CF_II_SIMILARITY;
     public static double CF_II_KNN;
     public static int CF_II_THRESHOLD;
+    public static double CF_II_GENRE_SIM;
 
     public static String CF_UU_SIMILARITY;
     public static double CF_UU_KNN;
@@ -43,6 +45,7 @@ public class Config {
 
     /* Data locations */
     public static String moviesFile; // movies
+    public static String moviesExtendedFile; // movies including genres
     public static String ratingsFile; // ratings
     public static String usersFile; // users
     public static String predictionsFile; // predictions
@@ -65,6 +68,7 @@ public class Config {
 
                         /* General */
                         case "training_mode": TRAINING_MODE = parts[1].equals("true"); break;
+                        case "use_genres" : USE_GENRES = parts[1].equals("true"); break;
                         case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
                         case "allow_log": ALLOW_LOG = parts[1].equals("true"); break;
                         case "log_file": LOG_FILE = parts[1]; break;
@@ -78,6 +82,8 @@ public class Config {
                         case "cf_ii_similarity": CF_II_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
                         case "cf_ii_knn": CF_II_KNN = Double.parseDouble(parts[1]);break;
                         case "cf_ii_threshold": CF_II_THRESHOLD = Integer.parseInt(parts[1]); break;
+                        case "cf_ii_genre_sim": CF_II_GENRE_SIM = Double.parseDouble(parts[1]); break;
+
                         case "cf_uu_similarity": CF_UU_SIMILARITY = SIMILARITIES[Integer.parseInt(parts[1])]; break;
                         case "cf_uu_knn": CF_UU_KNN = Double.parseDouble(parts[1]);break;
                         case "cf_uu_threshold": CF_UU_THRESHOLD = Integer.parseInt(parts[1]); break;
@@ -91,6 +97,7 @@ public class Config {
 
                         /* Files */
                         case "movies_file": moviesFile = parts[1]; break;
+                        case "movies_extended_file": moviesExtendedFile = parts[1]; break;
                         case "ratings_file": ratingsFile = parts[1]; break;
                         case "users_file": usersFile = parts[1]; break;
                         case "predictions_file": predictionsFile = parts[1]; break;

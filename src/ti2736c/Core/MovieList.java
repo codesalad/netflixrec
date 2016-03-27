@@ -38,5 +38,38 @@ public class MovieList extends ArrayList<Movie> {
             }
         }
     }
+
+    public void loadGenres(String filename) {
+        System.out.println("Loading movie genres...");
+        assert (size() > 0);
+        BufferedReader br = null;
+        String line;
+        try {
+            br = new BufferedReader(new FileReader(filename));
+            while((line = br.readLine()) != null) {
+                String[] movieData = line.split("::");
+                // 0: index, 1: title, 2: genres
+                int index = Integer.parseInt(movieData[0]) - 1;
+                if (index < size() && get(index) != null) {
+                    String[] genreData = movieData[2].split("\\|");
+                    for (String genre : genreData)
+                        get(index).addGenre(genre);
+                }
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(br != null) {
+                try {
+                    br.close();
+                }
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
 

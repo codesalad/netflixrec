@@ -1,6 +1,5 @@
 package ti2736c.Drivers;
 
-import ti2736c.Algorithms.CFI2I;
 import ti2736c.Algorithms.RMSE;
 import ti2736c.Core.RatingList;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 /**
  * Created by codesalad on 3-3-16.
  */
-public class CFDriver {
+public class CFI2IDriver {
     public static void main(String[] args) {
         /* Initialize configs */
         System.out.println("CONFIG LOADED:\n-----------------\n");
@@ -37,10 +36,10 @@ public class CFDriver {
         RatingList predictions = null;
 
         if (Config.TRAINING_MODE) {
-            resRatings = CFI2I.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
+            resRatings = ti2736c.Algorithms.CFI2I.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
             predictions = testSet;
         } else {
-            resRatings = CFI2I.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(),
+            resRatings = ti2736c.Algorithms.CFI2I.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(),
                     Data.getInstance().getRatingList(), Data.getInstance().getPredictionList());
             predictions = Data.getInstance().getPredictionList();
         }

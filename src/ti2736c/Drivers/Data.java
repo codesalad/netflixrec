@@ -30,13 +30,16 @@ public class Data {
 
     public void init() {
         userList = new UserList();
-        userList.readFile(Config.getInstance().usersFile);
+        userList.readFile(Config.usersFile);
 
         movieList = new MovieList();
-        movieList.readFile(Config.getInstance().moviesFile);
+        movieList.readFile(Config.moviesFile);
+
+        if (Config.USE_GENRES)
+            movieList.loadGenres(Config.moviesExtendedFile);
 
         ratingList = new RatingList();
-        ratingList.readFile(Config.getInstance().ratingsFile,
+        ratingList.readFile(Config.ratingsFile,
                 userList, movieList);
 
         trainingSet = new RatingList();
@@ -44,7 +47,7 @@ public class Data {
         verificationSet = new RatingList();
 
         predictionList = new RatingList();
-        predictionList.readFile(Config.getInstance().predictionsFile,
+        predictionList.readFile(Config.predictionsFile,
                 userList, movieList);
 
         calculateMean();
