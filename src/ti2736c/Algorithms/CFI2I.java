@@ -105,7 +105,7 @@ public class CFI2I {
             int k = 0;
 
             for (Map.Entry<Double, Integer> entry : neighbours.entrySet()) {
-                double dist = entry.getKey();
+                double dist = 1 - entry.getKey();
                 int index = entry.getValue();
                 double bxj = mean + (avgUserRatings[c] - mean)
                         + (avgMovieRatings[index] - mean);

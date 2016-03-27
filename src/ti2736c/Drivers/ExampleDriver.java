@@ -32,6 +32,8 @@ public class ExampleDriver {
         // Predict ratings.
         RatingList predictions = exampleAlgorithm.predictRatings(users, movies, trainingSet, testSet);
 
+        System.out.println(predictions.get(0));
+
         if (!Config.TRAINING_MODE)
             predictions.writeResultsFile(Config.outputFile);
 

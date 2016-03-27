@@ -1219,3 +1219,447 @@ RMSE: 0.8771068807705447
 
 Duration: 219s
 ----------------------------------------------
+Sun Mar 27 21:01:30 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = true
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 10
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91019
+RMSE: 0.8759383434722808
+
+Duration: 213s
+----------------------------------------------
+Sun Mar 27 21:11:19 CEST 2016
+>Running combiner LFM & CF Item-Item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 10
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91017
+RMSE: 0.8458338030711766
+
+Duration: 496s
+----------------------------------------------
+Sun Mar 27 21:25:10 CEST 2016
+>Running combiner LFM & CF Item-Item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = true
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 10
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91019
+RMSE: 0.8442064651502661
+
+Duration: 437s
+----------------------------------------------
+Sun Mar 27 21:40:42 CEST 2016
+>Running combiner LFM & CF Item-Item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = true
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 10
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91019
+RMSE: 0.8441022606156963
+
+Duration: 486s
+----------------------------------------------
+Sun Mar 27 23:10:52 CEST 2016
+>Running CF user-user...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.01
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 9099
+RMSE: 0.9530750125109174
+
+Duration: 366s
+----------------------------------------------
+Sun Mar 27 23:15:01 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.01
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 9099
+RMSE: 0.8807963620410323
+
+Duration: 21s
+----------------------------------------------
+Sun Mar 27 23:17:40 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.01
+cf_ii_similarity = 2
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 9099
+RMSE: 0.9366558413390956
+
+Duration: 36s
+----------------------------------------------
+Sun Mar 27 23:18:17 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.01
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 9099
+RMSE: 0.8807963620410323
+
+Duration: 21s
+----------------------------------------------
+Sun Mar 27 23:20:44 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.01
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 9099
+RMSE: 0.8762436379793477
+
+Duration: 21s
+----------------------------------------------
+Sun Mar 27 23:24:34 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 15
+cf_ii_knn = 0.08
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 1
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91017
+RMSE: 0.87291004023524
+
+Duration: 205s
+----------------------------------------------
+Sun Mar 27 23:29:57 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 18
+cf_ii_knn = 0
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 0
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91017
+RMSE: 0.8726501087806194
+
+Duration: 210s
+----------------------------------------------
+Sun Mar 27 23:37:47 CEST 2016
+>Running CF item-item...
+training_mode = true
+allow_status_output = true
+allow_log = true
+log_file = logs.txt
+randomize_sets = false
+training_set_size = 0.8
+test_set_size = 0.1
+cf_ii_similarity = 1
+cf_ii_threshold = 20
+cf_ii_knn = 0
+use_genres = false
+cf_ii_genre_sim = 0
+cf_uu_similarity = 1
+cf_uu_threshold = 7
+cf_uu_knn = 0
+lf_bias = false
+lf_epochs = 350
+lf_feature_length = 50
+lf_learning_rate = 0.00135
+lf_regularization = 0.061
+movies_file = data/movies.csv
+movies_extended_file = data/movies_extended.dat
+ratings_file = data/ratings.csv
+users_file = data/users.csv
+predictions_file = data/predictions.csv
+output_file = submission.csv
+
+
+Algorithm ran with 
+training set of size: 728152 (80.0%)
+test set of size: 91017
+RMSE: 0.8727691820332953
+
+Duration: 210s
+----------------------------------------------

@@ -84,12 +84,13 @@ public class CFU2U {
 
             TreeMap<Double, Integer> neighbours = new TreeMap<>();
             for (int u = 0; u < userIndices.size(); u++) {
-                double distance = 0.0;
+                double similarity = 0.0;
                 if (Config.CF_UU_SIMILARITY.equals("pearson"))
-                    distance = pearson(utility, avgMovieRatings, avgUserRatings, c, userIndices.get(u));
+                    similarity = pearson(utility, avgMovieRatings, avgUserRatings, c, userIndices.get(u));
                 else if (Config.CF_UU_SIMILARITY.equals("cosine"))
-                    distance = cosine(utility, c, userIndices.get(u));
+                    similarity = cosine(utility, c, userIndices.get(u));
 
+                double distance = 1 - similarity;
                 neighbours.put(distance, userIndices.get(u));
             }
 
@@ -112,7 +113,7 @@ public class CFU2U {
                 double bxj = mean + (avgUserRatings[index] - mean)
                         + (avgMovieRatings[q] - mean);
 
-                numerator += (utility[q][index] - bxi) * dist;
+                numerator += (utility[q][index] - bxj) * dist;
                 denominator += dist;
 
                 if (k >= Config.CF_UU_THRESHOLD && k >= (Config.CF_UU_KNN * neighbours.size())) break;
@@ -124,7 +125,9 @@ public class CFU2U {
 //                toRate.setRating(bxi);
                 results.add(bxi);
             } else {
-                results.add(bxi + (numerator/denominator));
+                double prediction = bxi + (numerator/denominator);
+                prediction = Math.min(Math.max(prediction, 1.0), 5.0);
+                results.add(bxi + prediction);
             }
 
             if (Config.ALLOW_STATUS_OUTPUT)
@@ -146,9 +149,8 @@ public class CFU2U {
                 normB += Math.pow(utility[r][otherUser], 2);
             }
         }
-        if (normA == 0 || normB == 0) return 0;
-//        if (normB == 0) normB = 1;
-        return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+        double res = dot / (Math.sqrt(normA) * Math.sqrt(normB));
+        return (Double.isNaN(res)) ? 0.0 : res;
     }
 
     public static double pearson(double[][] utility, double[] meanMovies, double[] meanUsers, int query, int other) {
