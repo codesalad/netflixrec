@@ -77,7 +77,7 @@ public class CFI2I {
 
                     double similarity = 0.0;
                     if (Config.CF_II_SIMILARITY.equals("pearson"))
-                        similarity = pearson(utility, avgUserRatings, q, r);
+                        similarity = pearson(utility, avgMovieRatings, q, r);
                     else if (Config.CF_II_SIMILARITY.equals("cosine"))
                         similarity = cosine(utility, q, r);
                     else if (Config.CF_II_SIMILARITY.equals("euclid"))
@@ -160,16 +160,19 @@ public class CFI2I {
         return (Double.isNaN(res)) ? 0.0 : res;
     }
 
-    public static double pearson(double[][] utility, double[] meanUsers, int queryMovie, int otherMovie) {
+    public static double pearson(double[][] utility, double[] meanMovies, int queryMovie, int otherMovie) {
         double dot = 0.0;
         double normA = 0.0;
         double normB = 0.0;
 
         for (int c = 0; c < utility[0].length ; c++) {
-            dot += (utility[queryMovie][c] - meanUsers[c])
-                    * (utility[otherMovie][c] - meanUsers[c]);
-            normA += Math.pow((utility[queryMovie][c] - meanUsers[c]), 2);
-            normB += Math.pow((utility[otherMovie][c] - meanUsers[c]), 2);
+            double dot1 = (utility[queryMovie][c] > 0.0) ? (utility[queryMovie][c] - meanMovies[queryMovie]) : 0;
+            double dot2 = (utility[otherMovie][c] > 0.0) ? (utility[otherMovie][c] - meanMovies[queryMovie]) : 0;
+
+            dot += dot1 * dot2;
+
+            normA += dot1 * dot1;
+            normB += dot2 * dot2;
         }
 
         double res = dot / (Math.sqrt(normA) * Math.sqrt(normB));
