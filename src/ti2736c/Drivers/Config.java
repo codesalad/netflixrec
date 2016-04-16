@@ -18,6 +18,8 @@ public class Config {
     public static boolean ALLOW_STATUS_OUTPUT;
     public static boolean ALLOW_LOG;
     public static String LOG_FILE;
+    public static boolean ALLOW_CACHE;
+    public static String RESULT_CACHE_LOC;
 
     public static boolean RANDOMIZE_SETS;
 
@@ -72,6 +74,8 @@ public class Config {
                         case "allow_status_output": ALLOW_STATUS_OUTPUT = parts[1].equals("true"); break;
                         case "allow_log": ALLOW_LOG = parts[1].equals("true"); break;
                         case "log_file": LOG_FILE = parts[1]; break;
+                        case "allow_cache": ALLOW_CACHE = parts[1].equals("true");
+                        case "results_cache": RESULT_CACHE_LOC = parts[1]; break;
 
                         /* Training */
                         case "randomize_sets": RANDOMIZE_SETS = parts[1].equals("true"); break;

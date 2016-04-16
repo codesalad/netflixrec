@@ -30,7 +30,7 @@ public class Combiner {
         RatingList verificationSet = Data.getInstance().getVerificationSet();
 
         // Contains <user id, movie id>, ratings set at 0.
-        RatingList testSet = Data.getInstance().getTestSet();
+        RatingList testSet = Data.getInstance().getPredictionList();
 
         long startTime = System.currentTimeMillis();
 
@@ -42,16 +42,11 @@ public class Combiner {
         ArrayList<Double> cfII = CFI2I.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
         System.out.print(" - done.\n");
 
-        System.out.print(">Starting CF user-user algorithm... ");
-//        ArrayList<Double> cfUU = CFU2U.predictRatings(Data.getInstance().getUserList(), Data.getInstance().getMovieList(), trainingSet, testSet);
-        System.out.print(" - done.\n");
-
         for (int i = 0; i < testSet.size(); i++) {
             Rating toRate = testSet.get(i);
             double a = lfmresults.get(i);
             double b = cfII.get(i);
-//            double c= cfUU.get(i);
-            double prediction = 0.65 * a + 0.35 * b;// + 0.1 * c;
+            double prediction = 0.66 * a + (1.0 - .66) * b;
 
             if (prediction > 5.0)
                 prediction = 5.0;
@@ -59,27 +54,39 @@ public class Combiner {
                 prediction = 1.0;
 
             toRate.setRating(prediction);
+
+//            if (i < 50)
+//                System.out.println("LFM: " + a + "\tII:" + b + "\tprediction: " + prediction + "\tactual: " + verificationSet.get(i).getRating());
         }
 
-        for (int i = 0; i < 50; i++) {
-            double a = lfmresults.get(i);
-            double b = cfII.get(i);
-//            double c= cfUU.get(i);
-            double prediction = 0.65 * a + 0.35 * b;// + 0.1 * c;
+        // CACHE
+        if (Config.ALLOW_CACHE) {
+            try {
+                PrintWriter pw = new PrintWriter(new FileOutputStream(new File(Config.RESULT_CACHE_LOC), false));
+                pw.println(new Date());
+                pw.println("LFM & LFM2 & II");
+                for (int i = 0; i < testSet.size(); i++) {
+                    double a = lfmresults.get(i);
+//                    double b = lfmresults2.get(i);
+                    double c = cfII.get(i);
+//                    pw.println(a + "|" + b + "|" + c);
+                }
+                pw.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
-            if (prediction > 5.0)
-                prediction = 5.0;
-            else if (prediction < 1.0)
-                prediction = 1.0;
-
-            System.out.println("LFM: " + a + "\tII: " + b + "\tprediction: " + prediction + "\tactual: " + verificationSet.get(i).getRating());
         }
+
+        if (!Config.TRAINING_MODE)
+            testSet.writeResultsFile(Config.outputFile);
+
 
         String rmse = RMSE.calcString(testSet, verificationSet);
         System.out.println(rmse);
 
         long endTime = System.currentTimeMillis();
-        System.out.println("Duration: " + (endTime - startTime) / 1000 + "s" );
+        System.out.println("Duration: " + (endTime - startTime) / 1000 + "s");
 
         if (Config.ALLOW_LOG) {
             try {
